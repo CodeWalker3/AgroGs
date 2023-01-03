@@ -1,0 +1,8 @@
+<!-- templates/home.html -->
+{% load socialaccount %}
+{% if user.is_authenticated %}
+<p>Welcome {{ user.username }} !!!</p>
+{% else %}
+<a href="{% provider_login_url 'facebook' %}">Sign Up - Facebook</a>
+<a href="{% provider_login_url 'google' %}">Sign Up - Google</a>
+{% endif %}
