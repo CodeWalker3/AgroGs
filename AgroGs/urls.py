@@ -20,5 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('users/', include('AgroGs.users.urls')),
-    path('', include('AgroGs.core.urls'))
+    path('', include('AgroGs.core.urls')),
+    path('products/', include('AgroGs.products.urls'))
 ]
