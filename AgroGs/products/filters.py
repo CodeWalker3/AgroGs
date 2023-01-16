@@ -13,6 +13,7 @@ class ProductsFilter(FilterSet):
     )
     category = ModelChoiceFilter(
         queryset=Category.objects.all())
+
     class Meta:
         model = Products
         fields = ["name", "description", "category"]
