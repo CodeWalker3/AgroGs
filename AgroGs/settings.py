@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sites', # new
     'AgroGs.users',
     'AgroGs.core',
+    'AgroGs.orders',
     'AgroGs.products',
     'allauth', # new
     'allauth.account', # new

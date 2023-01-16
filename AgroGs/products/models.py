@@ -30,12 +30,15 @@ class Products(models.Model):
         verbose_name="Description",
         blank=False, null=False
     )
-    category = models.ManyToManyField(Category)
+    category = models.ManyToManyField(
+        Category,
+        verbose_name="Category",
+        )
     created_by = models.ForeignKey(
 		User,
 		on_delete=models.SET_NULL,
 		null=True,
-		blank=True,
+		blank=False,
 		verbose_name="Created_By"
 	)
     created_at = models.DateTimeField(
