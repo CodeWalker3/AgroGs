@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'AgroGs.core',
     'AgroGs.orders',
     'AgroGs.products',
+    'AgroGs.cart',
     'allauth', # new
     'allauth.account', # new
     'allauth.socialaccount', # new

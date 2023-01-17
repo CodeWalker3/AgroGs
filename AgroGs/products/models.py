@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from AgroGs.cart.models import Cart
 # Create your models here.
 from django.db import models
 
@@ -46,6 +46,12 @@ class Products(models.Model):
     )
     updated_at = models.DateTimeField(
         auto_now=True
+    )
+    cart = models.ForeignKey(
+        Cart, 
+        verbose_name="Cart",
+        on_delete=models.CASCADE,
+        null=True, blank=True
     )
 
     def __str__(self):
