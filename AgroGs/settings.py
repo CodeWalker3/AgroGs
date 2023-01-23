@@ -38,17 +38,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites', # new
+    'django.contrib.sites', 
+    'admin_reorder',
+    'allauth', 
+    'allauth.account', 
+    'allauth.socialaccount', 
+    'allauth.socialaccount.providers.google',
+    'django_filters',
     'AgroGs.users',
     'AgroGs.core',
     'AgroGs.orders',
     'AgroGs.products',
-    'AgroGs.cart',
-    'allauth', # new
-    'allauth.account', # new
-    'allauth.socialaccount', # new
-    'allauth.socialaccount.providers.google',
-    'django_filters'
+    'AgroGs.cart',   
 ]
 
 MIDDLEWARE = [
@@ -59,6 +60,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'admin_reorder.middleware.ModelAdminReorder',
 ]
 
 ROOT_URLCONF = 'AgroGs.urls'
@@ -160,3 +162,22 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, "AgroGs", "static/"),)
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+ADMIN_REORDER = (
+    # Keep original label and models
+    # Rename app
+    {'app': 'users', 
+     'label': 'Authorisation',
+     'models': (
+         'users.User',
+         'auth.Group',
+         'users.Address'
+    )},
+    
+    'cart',
+    'orders',
+    'products',
+    'socialaccount'
+
+)
