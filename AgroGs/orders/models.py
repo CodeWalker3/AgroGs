@@ -1,6 +1,5 @@
 from django.db import models
-from AgroGs.products.models import Products
-from django.contrib.auth.models import User
+from AgroGs.users.models import User
 # Create your models here.
 
 class PaymentMethod(models.Model):
@@ -18,7 +17,7 @@ class Orders(models.Model):
     total = models.DecimalField(
         verbose_name="Total",
         max_digits=25, decimal_places=2,
-        blank=2, null=False
+        blank=True, null=True
     )
     status = models.CharField(
         ChoiceStatus,
@@ -30,10 +29,6 @@ class Orders(models.Model):
     update_date = models.DateTimeField(
         auto_now=True
     )
-    product = models.ManyToManyField(
-        Products,
-        verbose_name="Product",
-        )
     client = models.ForeignKey(
         User,
         verbose_name="Client",

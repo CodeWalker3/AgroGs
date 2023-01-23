@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'AgroGs.core',
     'AgroGs.orders',
     'AgroGs.products',
+    'AgroGs.cart',
     'allauth', # new
     'allauth.account', # new
     'allauth.socialaccount', # new
@@ -127,6 +128,9 @@ SOCIALACCOUNT_PROVIDERS = {
         }
     }
 }
+
+ACCOUNT_FORMS = {'signup': 'users.forms.SimpleSignupForm'}
+AUTH_USER_MODEL = 'users.User'
 
 SITE_ID = 1
 
