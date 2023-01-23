@@ -1,8 +1,9 @@
 from django.db import models
 from AgroGs.orders.models import Orders
 from django.db.models import F, Sum
-from django.contrib.auth.models import User
+from AgroGs.users.models import User
 # Create your models here.
+
 class Cart(models.Model):
     total = models.DecimalField(
         verbose_name="Total",

@@ -129,6 +129,9 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
+ACCOUNT_FORMS = {'signup': 'users.forms.SimpleSignupForm'}
+AUTH_USER_MODEL = 'users.User'
+
 SITE_ID = 1
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'

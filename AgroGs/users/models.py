@@ -1,6 +1,17 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 # Create your models here.
+class User(AbstractUser):
+    phone = models.CharField(max_length=12)
+    is_vendor = models.BooleanField(
+        default=False
+    )
+    cnpj = models.CharField(
+        verbose_name="Vendor",
+        max_length=100,
+        null=False, blank=False
+    )
+
 class Address(models.Model):
     city = models.CharField(
         verbose_name="City",
@@ -35,17 +46,3 @@ class Address(models.Model):
         User,
         on_delete=models.CASCADE   
         )
-class Vendor(models.Model):
-    
-    user = models.OneToOneField(
-		User, 
-		on_delete=models.CASCADE
-	)
-    is_vendor = models.BooleanField(
-        default=False
-    )
-    cnpj = models.CharField(
-        verbose_name="Vendor",
-        max_length=100,
-        null=False, blank=False
-    )

@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from AgroGs.users.models import User
 from AgroGs.cart.models import Cart
 # Create your models here.
 from django.db import models
