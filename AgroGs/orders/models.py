@@ -1,5 +1,6 @@
 from django.db import models
 from AgroGs.users.models import User
+from AgroGs.cart.models import Cart
 # Create your models here.
 
 class PaymentMethod(models.Model):
@@ -11,8 +12,9 @@ class PaymentMethod(models.Model):
         return self.name
 class Orders(models.Model):
     ChoiceStatus = (
-        ('', ''),
-        ('', '')
+        ('Em andamento', 'Em andamento'),
+        ('Cancelado', 'Cancelado'),
+        ('Entregue', 'Entregue')
     )
     total = models.DecimalField(
         verbose_name="Total",
@@ -29,15 +31,20 @@ class Orders(models.Model):
     update_date = models.DateTimeField(
         auto_now=True
     )
-    client = models.ForeignKey(
+    user = models.ManyToManyField(
         User,
-        verbose_name="Client",
-        null=True, blank=False,
-        on_delete=models.SET_NULL,
+        verbose_name="User",
         )
+    cart = models.OneToOneField(
+        Cart,
+        verbose_name="Cart",
+        on_delete=models.CASCADE,
+        blank=True, null=True
+    )
     payment = models.ForeignKey(
         PaymentMethod,
         verbose_name="Payment",
         null=True, blank=False,
         on_delete=models.SET_NULL
         )
+

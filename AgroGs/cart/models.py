@@ -1,7 +1,7 @@
 from django.db import models
-from AgroGs.orders.models import Orders
 from django.db.models import F, Sum
 from AgroGs.users.models import User
+from AgroGs.products.models import Products
 # Create your models here.
 
 class Cart(models.Model):
@@ -10,16 +10,16 @@ class Cart(models.Model):
         max_digits=25, decimal_places=2,
         blank=True, null=True
     )
-    orders = models.OneToOneField(
-        Orders,
-        verbose_name="Order",
-        on_delete=models.CASCADE,
-        blank=True, null=True
-    )
     user = models.OneToOneField(
         User,
         verbose_name="User",
         on_delete=models.CASCADE
+    )
+    product = models.ForeignKey(
+        Products, 
+        verbose_name="Product",
+        on_delete=models.CASCADE,
+        null=True, blank=True
     )
     class Meta:
         app_label='cart'
