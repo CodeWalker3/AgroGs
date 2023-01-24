@@ -40,16 +40,17 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites', 
     'admin_reorder',
-    'allauth', 
-    'allauth.account', 
-    'allauth.socialaccount', 
-    'allauth.socialaccount.providers.google',
+    
     'django_filters',
     'AgroGs.users',
     'AgroGs.core',
     'AgroGs.orders',
     'AgroGs.products',
-    'AgroGs.cart',   
+    'AgroGs.cart',
+    'allauth', 
+    'allauth.account', 
+    'allauth.socialaccount', 
+    'allauth.socialaccount.providers.google',  
 ]
 
 MIDDLEWARE = [
