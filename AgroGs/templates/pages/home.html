@@ -2,4 +2,86 @@
 
 {% block content %}
 
+
+{% include "layouts/features.html" %}
+
+<section class="topsell__area-1 pt-15">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="section__head d-flex justify-content-between mb-30">
+                    <div class="section__title section__title-2">
+                        <h5 class="st-titile">Top Featured Products</h5>
+                    </div>
+                    <div class="button-wrap button-wrap-2">
+                        <a href="{% url 'shop' %}">See All Product <i class="fal fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="product-bs-slider">
+                <div class="product-slider swiper-container">
+                    <div class="swiper-wrapper">
+                        {% for product in object_list %}
+                        <div class="product__item swiper-slide">
+                            <div class="product__thumb fix">
+                                <div class="product-image w-img">
+                                    <a href="product-details.html">
+                                        <img src="" alt="product">
+                                    </a>
+                                </div>
+                                <div class="product__offer">
+                                <span class="discount">-15%</span>
+                                </div>
+                                <div class="product-action">
+                                    <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                        <i class="fal fa-eye"></i>
+                                        <i class="fal fa-eye"></i>
+                                    </a>
+                                    <a href="#" class="icon-box icon-box-1">
+                                        <i class="fal fa-heart"></i>
+                                        <i class="fal fa-heart"></i>
+                                    </a>
+                                    <a href="#" class="icon-box icon-box-1">
+                                        <i class="fal fa-layer-group"></i>
+                                        <i class="fal fa-layer-group"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product__content">
+                                <h6><a href="{% url 'product-detail' product.pk %}" style="color: #17A354;">{{ product.name }}</a></h6>
+                                <div class="rating mb-5">
+                                    <ul>
+                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                    </ul>
+                                    <span>(01 review)</span>
+                                </div>
+                                <div class="price mb-10">
+                                    <span>$105-$110</span>
+                                </div>
+                                <div class="progress-rate">
+                                    <span>Sold:312/1225</span>
+                                </div>
+                            </div>
+                            <div class="product__add-cart text-center">
+                                <button type="button" class="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100">
+                                Add to Cart
+                                </button>
+                            </div>     
+                    </div>
+                    {% endfor %}
+                </div>
+                <!-- If we need navigation buttons -->
+                <div class="bs-button bs-button-prev"><i class="fal fa-chevron-left"></i></div>
+                <div class="bs-button bs-button-next"><i class="fal fa-chevron-right"></i></div>
+            </div>
+        </div>
+    </div>
+</section>
+
 {% endblock %}
