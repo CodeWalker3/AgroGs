@@ -23,4 +23,5 @@ urlpatterns = [
     path('', include('AgroGs.core.urls')),
     path('products/', include('AgroGs.products.urls')),
     path('orders/', include('AgroGs.orders.urls')),
+    path('orders/cart', include('AgroGs.cart.urls')),
 ]
