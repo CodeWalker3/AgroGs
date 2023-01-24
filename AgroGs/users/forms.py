@@ -3,9 +3,9 @@ from django import forms
 from .models import User
 
 class SimpleSignupForm(SignupForm):
-    profile_pic = forms.ImageField()
+    profile_pic = forms.ImageField(required=False)
     def save(self, request):
         user = super(SimpleSignupForm, self).save(request)
-        user.cnpj = self.cleaned_data['cnpj']
+
         user.save()
         return user

@@ -13,7 +13,7 @@ class User(AbstractUser):
     profile_pic = models.ImageField(
         verbose_name="Profile Picture",
         null = True, blank=True,
-        upload_to="AgroGs/media/users",
+        upload_to="users",
         
     )
     class Meta:
