@@ -2,15 +2,25 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 # Create your models here.
 class User(AbstractUser):
-    phone = models.CharField(max_length=12)
     is_vendor = models.BooleanField(
         default=False
     )
     cnpj = models.CharField(
-        verbose_name="Vendor",
+        verbose_name="CNPJ",
         max_length=100,
-        null=False, blank=False
+        null=True, blank=True
     )
+    profile_pic = models.ImageField(
+        verbose_name="Profile Picture",
+        null = True, blank=True,
+        upload_to="users",
+        
+    )
+    class Meta:
+        app_label="users"
+        verbose_name='User'
+        verbose_name_plural='Users'
+        
 
 class Address(models.Model):
     city = models.CharField(
@@ -46,3 +56,9 @@ class Address(models.Model):
         User,
         on_delete=models.CASCADE   
         )
+    
+    class Meta:
+        app_label="users"
+        verbose_name='Address'
+        verbose_name_plural='Addresses'
+    
