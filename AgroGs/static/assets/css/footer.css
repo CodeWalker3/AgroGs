@@ -27,14 +27,14 @@
     font-style: italic;
   }
   .footer__widget-content .provide-text a:hover {
-    color: #16bcdc;
+    color: #17A354;
   }
   .footer__hotline .icon i {
     font-size: 55px;
-    color: #fcbe00;
+    color: #17A354;
   }
   .footer__hotline .icon-2 i {
-    color: #16bcdc;
+    color: #17A354;
   }
   .footer__hotline .text h4 {
     font-size: 14px;
@@ -44,10 +44,10 @@
   .footer__hotline .text span {
     font-size: 18px;
     font-weight: 500;
-    color: #fcbe00;
+    color: #17A354;
   }
   .footer__hotline .text-2 span {
-    color: #16bcdc;
+    color: #17A354;
   }
   .footer__hotline-4 .icon i {
     color: #ffffff;
@@ -83,7 +83,7 @@
     }
   }
   .footer__link ul li a:hover {
-    color: #fcbe00;
+    color: #17A354;
     padding-left: 5px;
   }
   .footer__link-2 ul li a {
@@ -99,7 +99,7 @@
     color: #999;
   }
   .footer__link-2 ul li a:hover {
-    color: #16bcdc;
+    color: #17A354;
   }
   .footer__links p {
     margin-bottom: 0;
@@ -126,7 +126,7 @@
     top: -3px;
   }
   .footer__links p a:hover {
-    color: #fcbe00;
+    color: #17A354;
   }
   .footer__links p a:last-child::before {
     display: none;
@@ -135,7 +135,7 @@
     content: "|";
   }
   .footer__links-d p a:hover {
-    color: #16bcdc;
+    color: #17A354;
   }
   .footer__bottom-content {
     border-top: 1px solid #FFFFFF1A;
@@ -162,7 +162,7 @@
     transition: 0.3s;
   }
   .footer__newsletter-form .ft-newsl:focus {
-    border: 1px solid #16bcdc;
+    border: 1px solid #17A354;
   }
   .footer__newsletter-form .ft-newsl::-moz-placeholder {
     color: #666;
@@ -176,7 +176,7 @@
   }
   .footer__newsletter-form .ft-newsl-btn {
     position: absolute;
-    background: #16bcdc;
+    background: #17A354;
     color: #ffffff;
     padding: 12px 32px;
     font-size: 13px;
@@ -204,12 +204,12 @@
     color: #999;
   }
   .copy-right-area p span {
-    color: #fcbe00;
+    color: #17A354;
     display: inline-block;
   }
   
   .copy-right-area-2 p span {
-    color: #16bcdc;
+    color: #17A354;
   }
   
   .payment-image img {

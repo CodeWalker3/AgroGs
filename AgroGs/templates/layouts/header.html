@@ -18,7 +18,7 @@
                         <div class="header-inner-end text-md-end">
                             <div class="ovic-menu-wrapper">
                                 <ul>
-                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="#">About Us</a></li>
                                     <li><a href="contact.html">Order Tracking</a></li>
                                     <li><a href="contact.html">Contact Us</a></li>
                                 </ul>
@@ -36,8 +36,7 @@
                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4">
                         <div class="header__info">
                             <div class="logo">
-                                <a href="index.html" class="logo-image"><img
-                                        src="" alt="logo"></a>
+                                <a href="{% url 'home' %}" class="logo-image"><img src="" alt="logo"></a>
                             </div>
                         </div>
                     </div>
@@ -54,7 +53,7 @@
                     <div class="col-xl-4 col-lg-5 col-md-8 col-sm-8">
                         <div class="header-action">
                             <div class="block-userlink">
-                                <a class="icon-link" href="my-account.html">
+                                <a class="icon-link" href="{% url 'account_login' %}">
                                     <i class="flaticon-user"></i>
                                     <span class="text">
                                         <span class="sub">Login </span>
@@ -62,7 +61,7 @@
                                 </a>
                             </div>
                             <div class="block-wishlist action">
-                                <a class="icon-link" href="wishlist.html">
+                                <a class="icon-link" href="#">
                                     <i class="flaticon-heart"></i>
                                     <span class="count">0</span>
                                     <span class="text">
@@ -71,9 +70,9 @@
                                 </a>
                             </div>
                             <div class="block-cart action">
-                                <a class="icon-link" href="cart.html">
+                                <a class="icon-link" href="{% url 'cart' %}">
                                     <i class="flaticon-shopping-bag"></i>
-                                    <span class="count">1</span>
+                                    <span class="count">0</span>
                                     <span class="text">
                                         <span class="sub">Your Cart:</span>
                                         $00.00 </span>
@@ -92,13 +91,12 @@
                                                     class="cart__item d-flex justify-content-between align-items-center">
                                                     <div class="cart__inner d-flex">
                                                         <div class="cart__thumb">
-                                                            <a href="product-details.html">
+                                                            <a href="#">
                                                                 <img src="assets/img/cart/20.jpg" alt="">
                                                             </a>
                                                         </div>
                                                         <div class="cart__details">
-                                                            <h6><a href="product-details.html"> Samsung C49J89: £875,
-                                                                    Debenhams Plus </a></h6>
+                                                            <h6><a href="#"> tomate
                                                             <div class="cart__price">
                                                                 <span>$255.00</span>
                                                             </div>
@@ -117,7 +115,7 @@
                                                 </div>
                                             </li>
                                             <li>
-                                                <a href="cart.html" class="wc-cart mb-10">View cart</a>
+                                                <a href="{% url 'cart' %}" class="wc-cart mb-10">View cart</a>
                                                 <a href="checkout.html" class="wc-checkout">Checkout</a>
                                             </li>
                                         </ul>
@@ -142,79 +140,79 @@
                                 <nav id="mobile-menu" style="display: block;">
                                     <ul>
                                         <li>
-                                            <a href="shop.html">All Categories <i class="far fa-angle-down"></i></a>
+                                            <a href="#">All Categories <i class="far fa-angle-down"></i></a>
                                             <ul class="mega-menu">
-                                                <li><a href="shop.html">Shop Pages</a>
+                                                <li><a href="#">Shop Pages</a>
                                                     <ul class="mega-item">
-                                                        <li><a href="product-details.html">Standard SHop Page</a></li>
-                                                        <li><a href="product-details.html">Shop Right Sidebar</a></li>
-                                                        <li><a href="product-details.html">Shop Left Sidebar</a></li>
-                                                        <li><a href="product-details.html">Shop 3 Column</a></li>
-                                                        <li><a href="product-details.html">Shop 4 Column</a></li>
+                                                        <li><a href="#">Standard SHop Page</a></li>
+                                                        <li><a href="#">Shop Right Sidebar</a></li>
+                                                        <li><a href="#">Shop Left Sidebar</a></li>
+                                                        <li><a href="#">Shop 3 Column</a></li>
+                                                        <li><a href="#">Shop 4 Column</a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="shop.html">Product Pages</a>
+                                                <li><a href="#">Product Pages</a>
                                                     <ul class="mega-item">
-                                                        <li><a href="product-details.html">Product Details</a></li>
-                                                        <li><a href="product-details.html">Product V2</a></li>
-                                                        <li><a href="product-details.html">Product V3</a></li>
-                                                        <li><a href="product-details.html">Varriable Product</a></li>
-                                                        <li><a href="product-details.html">External Product</a></li>
+                                                        <li><a href="#">Product Details</a></li>
+                                                        <li><a href="#">Product V2</a></li>
+                                                        <li><a href="#">Product V3</a></li>
+                                                        <li><a href="#">Varriable Product</a></li>
+                                                        <li><a href="#">External Product</a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="shop.html">Other Pages</a>
+                                                <li><a href="#">Other Pages</a>
                                                     <ul class="mega-item">
-                                                        <li><a href="product-details.html">wishlist</a></li>
-                                                        <li><a href="product-details.html">Shopping Cart</a></li>
-                                                        <li><a href="product-details.html">Checkout</a></li>
-                                                        <li><a href="product-details.html">Login</a></li>
-                                                        <li><a href="product-details.html">Register</a></li>
+                                                        <li><a href="#">wishlist</a></li>
+                                                        <li><a href="#">Shopping Cart</a></li>
+                                                        <li><a href="#">Checkout</a></li>
+                                                        <li><a href="#">Login</a></li>
+                                                        <li><a href="#">Register</a></li>
                                                     </ul>
                                                 </li>
                                             </ul>
                                         </li>
                                         <li>
-                                            <a href="shop.html">Best Seller Products
+                                            <a href="#">Best Seller Products
                                                 <span class="cat-label">hot!</span>
                                                 <i class="far fa-angle-down"></i>
                                             </a>
                                             <ul class="mega-menu">
-                                                <li><a href="shop.html">Shop Pages</a>
+                                                <li><a href="#">Shop Pages</a>
                                                     <ul class="mega-item">
-                                                        <li><a href="product-details.html">Standard SHop Page</a></li>
-                                                        <li><a href="product-details.html">Shop Right Sidebar</a></li>
-                                                        <li><a href="product-details.html">Shop Left Sidebar</a></li>
-                                                        <li><a href="product-details.html">Shop 3 Column</a></li>
-                                                        <li><a href="product-details.html">Shop 4 Column</a></li>
+                                                        <li><a href="#">Standard SHop Page</a></li>
+                                                        <li><a href="#">Shop Right Sidebar</a></li>
+                                                        <li><a href="#">Shop Left Sidebar</a></li>
+                                                        <li><a href="#">Shop 3 Column</a></li>
+                                                        <li><a href="#">Shop 4 Column</a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="shop.html">Product Pages</a>
+                                                <li><a href="#">Product Pages</a>
                                                     <ul class="mega-item">
-                                                        <li><a href="product-details.html">Product Details</a></li>
-                                                        <li><a href="product-details.html">Product V2</a></li>
-                                                        <li><a href="product-details.html">Product V3</a></li>
-                                                        <li><a href="product-details.html">Varriable Product</a></li>
-                                                        <li><a href="product-details.html">External Product</a></li>
+                                                        <li><a href="#">Product Details</a></li>
+                                                        <li><a href="#">Product V2</a></li>
+                                                        <li><a href="#">Product V3</a></li>
+                                                        <li><a href="#">Varriable Product</a></li>
+                                                        <li><a href="#">External Product</a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="shop.html">Other Pages</a>
+                                                <li><a href="#">Other Pages</a>
                                                     <ul class="mega-item">
-                                                        <li><a href="product-details.html">wishlist</a></li>
-                                                        <li><a href="product-details.html">Shopping Cart</a></li>
-                                                        <li><a href="product-details.html">Checkout</a></li>
-                                                        <li><a href="product-details.html">Login</a></li>
-                                                        <li><a href="product-details.html">Register</a></li>
+                                                        <li><a href="#">wishlist</a></li>
+                                                        <li><a href="#">Shopping Cart</a></li>
+                                                        <li><a href="#">Checkout</a></li>
+                                                        <li><a href="#">Login</a></li>
+                                                        <li><a href="#">Register</a></li>
                                                     </ul>
                                                 </li>
                                             </ul>
                                         </li>
                                         <li>
-                                            <a href="shop.html">Top 10 Offers
+                                            <a href="#">Top 10 Offers
                                                 <span class="cat-label green">new!</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="shop.html">New Arrivals</a>
+                                            <a href="#">New Arrivals</a>
                                         </li>
                                     </ul>
                                 </nav>
@@ -232,48 +230,50 @@
                             <nav>
                                 <ul>
                                     <li>
-                                        <a href="index.html" class="active">Home <i class="far fa-angle-down"></i></a>
+                                        <a href="{% url 'home' %}" class="active">Home <i
+                                                class="far fa-angle-down"></i></a>
                                         <ul class="megamenu-1">
-                                            <li><a href="index.html">Home Pages</a>
+                                            <li><a href="{% url 'home' %}">Home Pages</a>
                                                 <ul class="mega-item">
-                                                    <li><a href="index.html" class="active">Home One</a></li>
+                                                    <li><a href="{% url 'home' %}" class="active">Home One</a></li>
                                                     <li><a href="index-2.html">Home Two</a></li>
                                                     <li><a href="index-3.html">Home Three</a></li>
-                                                    <li><a href="product-details.html">Shop 3 Column</a></li>
-                                                    <li><a href="product-details.html">Shop 4 Column</a></li>
+                                                    <li><a href="#">Shop 3 Column</a></li>
+                                                    <li><a href="#">Shop 4 Column</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="shop.html">Product Pages</a>
+                                            <li><a href="#">Product Pages</a>
                                                 <ul class="mega-item">
-                                                    <li><a href="product-details.html">Product Details</a></li>
-                                                    <li><a href="product-details.html">Product V2</a></li>
-                                                    <li><a href="product-details.html">Product V3</a></li>
-                                                    <li><a href="product-details.html">Varriable Product</a></li>
-                                                    <li><a href="product-details.html">External Product</a></li>
+                                                    <li><a href="#">Product Details</a></li>
+                                                    <li><a href="#">Product V2</a></li>
+                                                    <li><a href="#">Product V3</a></li>
+                                                    <li><a href="#">Varriable Product</a></li>
+                                                    <li><a href="#">External Product</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="shop.html">Other Pages</a>
+                                            <li><a href="#">Other Pages</a>
                                                 <ul class="mega-item">
-                                                    <li><a href="product-details.html">wishlist</a></li>
-                                                    <li><a href="product-details.html">Shopping Cart</a></li>
-                                                    <li><a href="product-details.html">Checkout</a></li>
-                                                    <li><a href="product-details.html">Login</a></li>
-                                                    <li><a href="product-details.html">Register</a></li>
+                                                    <li><a href="#">wishlist</a></li>
+                                                    <li><a href="#">Shopping Cart</a></li>
+                                                    <li><a href="#">Checkout</a></li>
+                                                    <li><a href="{% url 'account_login' %}">Login</a></li>
+                                                    <li><a href="#">Register</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="{% url 'shop' %}">Products</a></li>
+                                    <li><a href="#">About Us</a></li>
                                     <li>
-                                        <a href="about.html">Pages <i class="far fa-angle-down"></i></a>
+                                        <a href="#">Pages <i class="far fa-angle-down"></i></a>
                                         <ul class="submenu">
-                                            <li><a href="my-account.html">My Account</a></li>
-                                            <li><a href="product-details.html">Product Details</a></li>
-                                            <li><a href="cart.html">Cart</a></li>
-                                            <li><a href="wishlist.html">Wishlist</a></li>
-                                            <li><a href="checkout.html">Checkout</a></li>
-                                            <li><a href="contact.html">Contact Us</a></li>
-                                            <li><a href="404.html">404 Error</a></li>
+                                            <li><a href="#">My Account</a></li>
+                                            <li><a href="#">Product Details</a></li>
+                                            <li><a href="{% url 'cart' %}">Cart</a></li>
+                                            <li><a href="#">Wishlist</a></li>
+                                            <li><a href="">Checkout</a></li>
+                                            <li><a href="">Contact Us</a></li>
+                                            <li><a href="">404 Error</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -295,7 +295,7 @@
         </div>
         <div class="offcanvas__content">
             <div class="offcanvas__logo mb-40">
-                <a href="index.html">
+                <a href="{% url 'home' %}">
                     <img src="{% static 'assets/img/logo/logo-white.png' %}" alt="logo">
                 </a>
             </div>

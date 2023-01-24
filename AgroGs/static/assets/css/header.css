@@ -73,7 +73,7 @@
     transition: 0.3s;
   }
   .header-inner-start .support p:hover {
-    color: #fcbe00;
+    color: #17A354;
   }
   .header-inner-start .border-right {
     position: relative;
@@ -128,11 +128,11 @@
     font-size: 14px;
   }
   .ovic-menu-wrapper ul li a:hover {
-    color: #fcbe00;
+    color: #17A354;
   }
   
   .ovic-menu-wrapper-2 ul li a:hover {
-    color: #16bcdc;
+    color: #17A354;
   }
   
   .logo .logo-image img {
@@ -227,7 +227,7 @@
     font-size: 12px;
   }
   .header__search-box .search-input:focus {
-    border-color: #fcbe00;
+    border-color: #17A354;
   }
   .header__search-box .search-input::-moz-placeholder {
     color: #E0E0E0;
@@ -238,7 +238,7 @@
     font-size: 14px;
   }
   .header__search-box .search-input-2:focus {
-    border-color: #16bcdc;
+    border-color: #17A354;
   }
   .header__search-box .button {
     position: absolute;
@@ -262,7 +262,7 @@
     height: 40px;
     line-height: 42px;
     border-radius: 2px 2px 2px 2px;
-    background-color: #16bcdc;
+    background-color: #17A354;
     color: #ffffff;
   }
   .header__search-box .button-3 {
@@ -271,7 +271,7 @@
     height: 50px;
     line-height: 50px;
     border-radius: 2px 2px 2px 2px;
-    background-color: #16bcdc;
+    background-color: #17A354;
     color: #ffffff;
   }
   @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -328,7 +328,7 @@
     font-weight: 500;
   }
   .header__bottom .box-item a:hover {
-    color: #16bcdc;
+    color: #17A354;
   }
   .header__bottom .box-item a i {
     font-size: 30px;
@@ -451,17 +451,17 @@
     }
   }
   .header-action .icon-link .count-2 {
-    background: #16bcdc;
+    background: #17A354;
     color: #ffffff;
   }
   .header-action .icon-link:hover i {
-    color: #fcbe00;
+    color: #17A354;
   }
   .header-action .icon-link:hover span {
-    color: #fcbe00;
+    color: #17A354;
   }
   .header-action .icon-link:hover .sub {
-    color: #fcbe00;
+    color: #17A354;
   }
   .header-action .icon-link:hover .count {
     color: #222222;
@@ -476,13 +476,13 @@
     color: #ffffff;
   }
   .header-action .icon-link-2:hover i, .header-action .icon-link-2 span {
-    color: #16bcdc;
+    color: #17A354;
   }
   .header-action .icon-link-2:hover .text {
-    color: #16bcdc;
+    color: #17A354;
   }
   .header-action .icon-link-2:hover .sub {
-    color: #16bcdc;
+    color: #17A354;
   }
   
   .cart__mini {
@@ -495,7 +495,7 @@
     -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
     z-index: 11;
-    border-top: 2px solid #fcbe00;
+    border-top: 2px solid #17A354;
     padding: 35px 25px;
     padding-top: 27px;
     visibility: hidden;
@@ -538,7 +538,7 @@
     top: -2px;
     left: 35px;
     color: #ffffff;
-    background: #fcbe00;
+    background: #17A354;
     border-radius: 100%;
     font-size: 10px;
   }
@@ -551,7 +551,7 @@
     border-bottom: 1px solid #e5e5e5;
   }
   .cart__price span {
-    color: #fcbe00;
+    color: #17A354;
   }
   .cart__sub {
     padding-top: 20px;
@@ -564,7 +564,7 @@
     font-size: 14px;
     color: #222;
     font-weight: 500;
-    color: #fcbe00;
+    color: #17A354;
   }
   .cart__thumb {
     margin-right: 15px;
@@ -574,10 +574,10 @@
     height: 70px;
   }
   .cart__details h6 a:hover {
-    color: #fcbe00;
+    color: #17A354;
   }
   .cart__del a:hover {
-    color: #fcbe00;
+    color: #17A354;
   }
   
   .block-cart:hover > .cart .cart__mini {
@@ -675,7 +675,7 @@
     transform: rotate(-90deg) translateY(-50%);
   }
   .main-menu ul li ul.submenu li .active {
-    color: #fcbe00;
+    color: #17A354;
   }
   .main-menu ul li ul.submenu li:last-child a {
     border-bottom: none;
@@ -687,7 +687,7 @@
     opacity: 0;
   }
   .main-menu ul li ul.submenu li ul.submenu li:hover > a {
-    color: #fcbe00;
+    color: #17A354;
   }
   .main-menu ul li ul.submenu li:hover ul.submenu {
     visibility: visible;
@@ -696,7 +696,7 @@
   }
   .main-menu ul li ul.submenu li:hover > a {
     margin-left: 5px;
-    color: #fcbe00;
+    color: #17A354;
   }
   .main-menu ul li ul.megamenu-1 {
     position: absolute;
@@ -755,11 +755,11 @@
     text-transform: capitalize;
   }
   .main-menu ul li ul.megamenu-1 li ul li a:hover {
-    color: #fcbe00;
+    color: #17A354;
     margin-left: 5px;
   }
   .main-menu ul li ul.megamenu-1 li ul li .active {
-    color: #fcbe00;
+    color: #17A354;
   }
   .main-menu ul li ul.megamenu-1 li:hover > a {
     color: #222;
@@ -814,7 +814,7 @@
     }
   }
   .main-menu ul li .mega-menu ul > li ul li a:hover {
-    color: #fcbe00;
+    color: #17A354;
     margin-left: 5px;
   }
   .main-menu ul li .mega-menu ul > li ul li.title {
@@ -854,7 +854,7 @@
     font-weight: 300;
     line-height: 1em;
     letter-spacing: -2px;
-    color: #fcbe00;
+    color: #17A354;
   }
   .main-menu ul .mega-image ul li a h6 {
     font-size: 18px;
@@ -862,7 +862,7 @@
     color: #ffffff;
   }
   .main-menu ul .mega-image ul li a h6 span {
-    color: #fcbe00;
+    color: #17A354;
     display: inline-block;
   }
   
@@ -1043,7 +1043,7 @@
     margin-left: 5px;
   }
   .cat__menu ul li:hover > a {
-    color: #fcbe00;
+    color: #17A354;
   }
   .cat__menu ul li:hover .mega-menu {
     visibility: visible;
@@ -1129,11 +1129,11 @@
     font-weight: 400;
   }
   .cat__menu ul li .mega-menu li ul li:hover > a {
-    color: #fcbe00;
+    color: #17A354;
     margin-left: 5px;
   }
   .cat__menu ul li .mega-menu li:hover > a {
-    color: #fcbe00;
+    color: #17A354;
   }
   @media (min-width: 1400px) {
     .cat__menu-2 {
