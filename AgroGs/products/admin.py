@@ -3,7 +3,8 @@ from django.contrib import admin
 # Register your models here.
 from .models import (
     Category, 
-    Products, 
+    Products,
+    ImageProduct 
 )
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
@@ -25,4 +26,10 @@ class ProductsAdmin(admin.ModelAdmin):
     search_fields = [
         'name',
         'price'
+    ]
+
+@admin.register(ImageProduct)
+class ImageProductAdmin(admin.ModelAdmin):
+    list_display = [
+        'product_img',
     ]

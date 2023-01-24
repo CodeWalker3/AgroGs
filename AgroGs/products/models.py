@@ -12,7 +12,14 @@ class Category(models.Model):
         return self.name
 
 
-
+class ImageProduct(models.Model):
+    product_img = models.ImageField(
+        verbose_name="Product Image",
+        upload_to="products",
+        blank=False, null=False
+    )
+    def __str__(self):
+        return self.product_img.name
 
 class Products(models.Model):
     name = models.CharField(
@@ -36,8 +43,7 @@ class Products(models.Model):
     created_by = models.ForeignKey(
 		User,
 		on_delete=models.SET_NULL,
-		null=True,
-		blank=False,
+		null=True, blank=False,
 		verbose_name="Created_By"
 	)
     created_at = models.DateTimeField(
@@ -45,6 +51,10 @@ class Products(models.Model):
     )
     updated_at = models.DateTimeField(
         auto_now=True
+    )
+    image = models.ManyToManyField(
+        ImageProduct,
+        verbose_name='Imagem do Produto',
     )
 
     def __str__(self):

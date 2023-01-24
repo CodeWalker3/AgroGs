@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites', 
     'admin_reorder',
-    
     'django_filters',
     'AgroGs.users',
     'AgroGs.core',
@@ -141,7 +140,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 LOGIN_REDIRECT_URL = 'home'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'AgroGs' , 'media/')
 
 MEDIA_URL = '/media/'
 
