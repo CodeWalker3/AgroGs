@@ -39,7 +39,7 @@ class ProductsUserMixin(LoginRequiredMixin, UserPassesTestMixin):
     def handle_no_permission(self):
         return redirect(reverse_lazy('products-list'))
 
-class CreateProduct( ProductsUserMixin ,CreateView):
+class CreateProduct(ProductsUserMixin ,CreateView):
     model = Products
     form_class = ProductsForm
     template_name = "products_forms.html"

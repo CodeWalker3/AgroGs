@@ -69,9 +69,9 @@
                                 </div>
                             </div>
                             <div class="product__add-cart text-center">
-                                <button type="button" class="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100">
+                                <a href="{% url 'add_item' product.pk %}" class="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100">
                                 Add to Cart
-                                </button>
+                                </a>
                             </div>     
                     </div>
                     {% endfor %}
@@ -83,5 +83,9 @@
         </div>
     </div>
 </section>
+
+<script>
+
+</script>
 
 {% endblock %}
