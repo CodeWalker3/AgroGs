@@ -17,13 +17,13 @@ class CartView(View):
             cart.save()
             cart_items = CartItem.objects.filter(cart=cart)
             return render(
-                request, 'cart_test.html',{
+                request, 'cart.html',{
                     'cart':cart,
                     'cart_items': cart_items
                 }
             )
         else:
-            return render(request, "cart_test.html")
+            return render(request, "cart.html")
         # …
 
 def cart_add(request, pk):
@@ -31,7 +31,7 @@ def cart_add(request, pk):
     if Cart.objects.exists():
         cart = Cart.objects.get(user=request.user)
         if  CartItem.objects.filter(cart=cart).exists() and CartItem.objects.filter(product=product).exists():
-            CartItem.objects.filter(product=product).update(quantity=F('quantity') + 1)
+            CartItem.objects.filter(product=product).update(quantity=F('quantity') + 1, total=float(product.price) * (F('quantity') + 1))
         else:
             cart_item = CartItem.objects.create(
                 cart=cart,
@@ -47,4 +47,4 @@ def cart_add(request, pk):
         )
         cart_item.save()
 
-    return redirect("home")
+    return redirect("cart")

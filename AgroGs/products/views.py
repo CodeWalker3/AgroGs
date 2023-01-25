@@ -48,9 +48,6 @@ class CreateProduct(ProductsUserMixin ,CreateView):
         self.initial.update({ 'created_by': self.request.user })
         return self.initial
 
-
-
-
 class UpdateProduct(UpdateView):
     pass
 

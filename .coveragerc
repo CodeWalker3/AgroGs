@@ -4,4 +4,8 @@ omit=
     */__init__.py
     */tests/*
     */migrations/*
-    */core/*
+    */forms.py
+    */apps.py
+    */admin.py
+    */filters.py
+    */settings.py
