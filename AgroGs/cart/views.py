@@ -4,10 +4,12 @@ from django.views import View
 from django.shortcuts import redirect
 from .models import Cart, CartItem
 from AgroGs.products.models import Products
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 # Create your views here.
-class CartView(View):
+class CartView(LoginRequiredMixin, View):
     def get(self, request):
-        if Cart.objects.exists():
+        if CartItem.objects.exists():
             cart = Cart.objects.annotate(
                 price=Sum(F('cartitem__total'))
             ).get(
@@ -23,13 +25,15 @@ class CartView(View):
                 }
             )
         else:
+            cart = Cart.objects.filter(user=request.user)
+            cart.delete()
             return render(request, "cart.html")
         # …
-
+@login_required
 def cart_add(request, pk):
     product = Products.objects.get(pk=pk)
     if Cart.objects.exists():
-        cart = Cart.objects.get(user=request.user)
+        cart = Cart.objects.get(user=request.user.pk)
         if  CartItem.objects.filter(cart=cart).exists() and CartItem.objects.filter(product=product).exists():
             CartItem.objects.filter(product=product).update(quantity=F('quantity') + 1, total=float(product.price) * (F('quantity') + 1))
         else:
@@ -47,4 +51,12 @@ def cart_add(request, pk):
         )
         cart_item.save()
 
+    return redirect("cart")
+
+
+def remove_item(request, pk):
+    product = Products.objects.get(pk=pk)
+    cart = Cart.objects.get(user=request.user.pk)
+    cart_item = CartItem.objects.filter(cart=cart, product=product)
+    cart_item.delete()
     return redirect("cart")

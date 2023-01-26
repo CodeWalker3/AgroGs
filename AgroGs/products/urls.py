@@ -5,8 +5,9 @@ from .views import (
     UpdateProduct, 
     UpdateCategory
 )
+app_name = "products"
 urlpatterns = [
-    path('products', ProductsList.as_view(), name='products-list'),
-    path('new_product', CreateProduct.as_view(), name='new-product'),
+    path('list', ProductsList.as_view(), name='list'),
+    path('create', CreateProduct.as_view(), name='create'),
  
 ]

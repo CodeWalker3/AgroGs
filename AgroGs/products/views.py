@@ -18,7 +18,6 @@ class ProductsList(ListView):
     queryset = Products.objects.all()
     paginate_by = 4
     filterset_class = ProductsFilter
-    template_name= "products.html"
 
     def get_queryset(self):
         queryset = super().get_queryset()
@@ -42,7 +41,6 @@ class ProductsUserMixin(LoginRequiredMixin, UserPassesTestMixin):
 class CreateProduct(ProductsUserMixin ,CreateView):
     model = Products
     form_class = ProductsForm
-    template_name = "products_forms.html"
     success_url = reverse_lazy("products-list")
     def get_initial(self):
         self.initial.update({ 'created_by': self.request.user })

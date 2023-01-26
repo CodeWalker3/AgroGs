@@ -28,7 +28,7 @@
                                         <div class="cart-plus-minus"><input type="text" value="{{ item.quantity }}"><div class="dec qtybutton">-</div><div class="inc qtybutton">+</div></div>
                                   </td>
                                   <td class="product-subtotal"><span class="amount">{{ item.total }}</span></td>
-                                  <td class="product-remove"><a href="#"><i class="fa fa-times"></i></a></td>
+                                  <td class="product-remove"><a href="{% url 'remove_item' item.product.pk %}"><i class="fa fa-times"></i></a></td>
                                </tr>
                             </tbody>
                             {% endfor %}

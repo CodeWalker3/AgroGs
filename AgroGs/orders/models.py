@@ -23,7 +23,8 @@ class Orders(models.Model):
     )
     status = models.CharField(
         ChoiceStatus,
-        max_length=100
+        max_length=100,
+        default= "Em andamento"
         )
     order_date = models.DateTimeField(
         auto_now_add=True

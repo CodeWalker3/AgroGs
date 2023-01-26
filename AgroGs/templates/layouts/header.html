@@ -52,6 +52,15 @@
                     </div>
                     <div class="col-xl-4 col-lg-5 col-md-8 col-sm-8">
                         <div class="header-action">
+                            <div class="block-cart action">
+                                <a class="icon-link" href="{% url 'cart' %}">
+                                    <i class="flaticon-shopping-bag"></i>
+                                    <span class="count">{{cart_items_count}}</span>
+                                    <span class="text">
+                                        <span class="sub">Your Cart:</span>
+                                        ${{ cart.total }} </span>
+                                </a>
+                            </div>
                             <div class="block-userlink">
                                 <a class="icon-link" href="{% url 'account_login' %}">
                                     <i class="flaticon-user"></i>
@@ -59,68 +68,6 @@
                                         <span class="sub">Login </span>
                                         My Account </span>
                                 </a>
-                            </div>
-                            <div class="block-wishlist action">
-                                <a class="icon-link" href="#">
-                                    <i class="flaticon-heart"></i>
-                                    <span class="count">0</span>
-                                    <span class="text">
-                                        <span class="sub">Favorite</span>
-                                        My Wishlist </span>
-                                </a>
-                            </div>
-                            <div class="block-cart action">
-                                <a class="icon-link" href="{% url 'cart' %}">
-                                    <i class="flaticon-shopping-bag"></i>
-                                    <span class="count">0</span>
-                                    <span class="text">
-                                        <span class="sub">Your Cart:</span>
-                                        $00.00 </span>
-                                </a>
-                                <div class="cart">
-                                    <div class="cart__mini">
-                                        <ul>
-                                            <li>
-                                                <div class="cart__title">
-                                                    <h4>Your Cart</h4>
-                                                    <span>(1 Item in Cart)</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div
-                                                    class="cart__item d-flex justify-content-between align-items-center">
-                                                    <div class="cart__inner d-flex">
-                                                        <div class="cart__thumb">
-                                                            <a href="#">
-                                                                <img src="assets/img/cart/20.jpg" alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="cart__details">
-                                                            <h6><a href="#"> tomate
-                                                            <div class="cart__price">
-                                                                <span>$255.00</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cart__del">
-                                                        <a href="#"><i class="fal fa-times"></i></a>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div
-                                                    class="cart__sub d-flex justify-content-between align-items-center">
-                                                    <h6>Subtotal</h6>
-                                                    <span class="cart__sub-total">$255.00</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <a href="{% url 'cart' %}" class="wc-cart mb-10">View cart</a>
-                                                <a href="checkout.html" class="wc-checkout">Checkout</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
