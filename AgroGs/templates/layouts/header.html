@@ -52,6 +52,7 @@
                     </div>
                     <div class="col-xl-4 col-lg-5 col-md-8 col-sm-8">
                         <div class="header-action">
+                            
                             <div class="block-cart action">
                                 <a class="icon-link" href="{% url 'cart' %}">
                                     <i class="flaticon-shopping-bag"></i>
@@ -60,15 +61,83 @@
                                         <span class="sub">Your Cart:</span>
                                         ${{ cart.total }} </span>
                                 </a>
+                                
+                                <div class="cart">
+                                    <div class="cart__mini">   
+                                        <ul>
+                                            <li>
+                                                <div class="cart__title">
+                                                    <h4>Your Cart</h4>
+                                                    <span>({{cart_items_count}} Item in Cart)</span>
+                                                </div>
+                                            </li>
+                                            {% for item in cart_items %}
+                                            <li>
+                                                <div class="cart__item d-flex justify-content-between align-items-center">
+                                                    
+                                                    <div class="cart__inner d-flex">
+                                                        <div class="cart__thumb">
+                                                            <a href="#">
+                                                                <img src="assets/img/cart/20.jpg" alt="">
+                                                            </a>
+                                                        </div>
+                                                        <div class="cart__details">
+                                                            <h6><a href="#"> {{ item.product.name }}
+                                                            <div class="cart__price">
+                                                                <span>{{ item.product.price }}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cart__del">
+                                                        <a href="{% url 'remove_item' item.product.pk %}"><i class="fal fa-times"></i></a>
+                                                    </div>    
+                                                </div>  
+                                            </li>
+                                            {% endfor %}
+                                            <li>
+                                                <div
+                                                    class="cart__sub d-flex justify-content-between align-items-center">
+                                                    <h6>Subtotal</h6>
+                                                    <span class="cart__sub-total">${{ cart.total }}</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href="{% url 'cart' %}" class="wc-cart mb-10">View cart</a>
+                                                <a href="{% url 'checkout' %}" class="wc-checkout">Checkout</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="block-userlink">
-                                <a class="icon-link" href="{% url 'account_login' %}">
-                                    <i class="flaticon-user"></i>
+                            {% if request.user.is_authenticated %}
+                              <div class=" action block-userlink">
+                                <div class="icon-link" onclick="menuToggle();">
+                                    <img style="width: 25%; margin-right: 5px; " src="{% static 'assets/icons/user.png' %}" />
                                     <span class="text">
-                                        <span class="sub">Login </span>
+                                        <span class="sub">{{ request.user.username }} </span>
                                         My Account </span>
-                                </a>
-                            </div>
+                                </div>
+                                <div class="menu">
+                                    <ul>
+                                      <li>
+                                        <img src="{% static 'assets/icons/edit.png' %}" /><a href="#">Edit profile</a>
+                                      </li>
+                                      <li>
+                                        <img src="{% static 'assets/icons/log-out.png' %}" /><a href="{% url 'account_logout' %}">Logout</a>
+                                      </li>
+                                    </ul>
+                                </div>
+                               </div>
+                            {% else %}
+                                <div class="block-userlink">
+                                    <a class="icon-link" href="{% url 'account_login' %}">
+                                       <i class="flaticon-user"></i> 
+                                        <span class="text">
+                                            <span class="sub">Login </span>
+                                            My Account </span>
+                                    </a>
+                                </div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -260,3 +329,10 @@
     </div>
 </div>
 <div class="body-overlay"></div>
+
+<script>
+    function menuToggle() {
+      const toggleMenu = document.querySelector(".menu");
+      toggleMenu.classList.toggle("active");
+    }
+  </script>

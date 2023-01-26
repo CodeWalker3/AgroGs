@@ -3,7 +3,7 @@ from django.views.generic import (
     DetailView,
 )
 from AgroGs.products.models import Products
-from AgroGs.cart.models import Cart, CartItem
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 class HomeView(TemplateView):
     template_name = "pages/home.html"
@@ -26,7 +26,7 @@ class ProductDetailView(DetailView):
     template_name = "pages/product_detail.html"
 
 
-class CheckoutView(TemplateView):
+class CheckoutView(LoginRequiredMixin, TemplateView):
     template_name = "pages/checkout.html"
 
     

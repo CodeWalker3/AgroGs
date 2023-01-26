@@ -663,7 +663,7 @@ input {
   font-weight: 500;
   padding: 8px 52px;
   background-color: #17A354;
-  color: #222;
+  color: #ffffff;
   display: inline-block;
   text-transform: uppercase;
   border-radius: 2px;
@@ -696,7 +696,6 @@ input {
   vertical-align: middle;
   white-space: nowrap;
   border: 1px solid transparent;
-  letter-spacing: 0;
 }
 .tp-btn-h1:hover {
   background: #ffffff;
