@@ -60,3 +60,10 @@ def remove_item(request, pk):
     cart_item = CartItem.objects.filter(cart=cart, product=product)
     cart_item.delete()
     return redirect("cart")
+
+def cart(request):
+    cart = Cart.objects.filter(user=request.user.pk).first()
+    cart_items_count = CartItem.objects.filter(cart=cart).count()
+    cart_items = CartItem.objects.filter(cart=cart)
+    context = {"cart_items_count": cart_items_count, "cart_items": cart_items, "cart": cart}
+    return context

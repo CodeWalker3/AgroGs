@@ -1,6 +1,6 @@
 from django.views.generic import (
     TemplateView,
-    DetailView
+    DetailView,
 )
 from AgroGs.products.models import Products
 from AgroGs.cart.models import Cart, CartItem
@@ -26,11 +26,8 @@ class ProductDetailView(DetailView):
     template_name = "pages/product_detail.html"
 
 
-def cart(request):
-    cart = Cart.objects.filter(user=request.user.pk).first()
-    cart_items_count = CartItem.objects.filter(cart=cart).count()
-    cart_items = CartItem.objects.filter(cart=cart)
-    context = {"cart_items_count": cart_items_count, "items": cart_items, "cart": cart}
-    return context
+class CheckoutView(TemplateView):
+    template_name = "pages/checkout.html"
+
     
     

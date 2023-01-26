@@ -414,25 +414,6 @@ input {
   width: 100%;
   background: transparent;
   border: 1px solid #e5e5e5;
-  color: #222;
-  padding: 10px 0;
-  font-size: 16px;
-  text-align: center;
-  font-weight: 500;
-  transition: 0.3s;
-}
-.wc-checkout:hover {
-  background: #17A354;
-  color: #ffffff;
-  color: #222;
-  border-color: #17A354;
-}
-
-.wc-checkout {
-  display: inline-block;
-  width: 100%;
-  background: transparent;
-  border: 1px solid #e5e5e5;
   color: #666;
   padding: 10px 0;
   font-size: 13px;
@@ -444,7 +425,6 @@ input {
 .wc-checkout:hover {
   background: #17A354;
   color: #ffffff;
-  color: #222;
   border-color: #17A354;
 }
 

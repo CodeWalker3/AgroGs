@@ -4,6 +4,7 @@ from AgroGs.core.views import (
     HomeView,
     ShopView,
     ProductDetailView,
+    CheckoutView
 )
 
 urlpatterns = [
@@ -11,4 +12,5 @@ urlpatterns = [
     path('shop', ShopView.as_view(), name="shop"),
     path('product-detail<int:pk>', ProductDetailView.as_view(), name="product-detail"),
     path('shop', ShopView.as_view(), name="shop"),
+    path('checkout', CheckoutView.as_view(), name="checkout"),
 ]
