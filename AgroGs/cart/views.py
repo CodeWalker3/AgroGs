@@ -6,7 +6,7 @@ from .models import Cart, CartItem
 from AgroGs.products.models import Products
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
-# Create your views here.
+
 class CartView(LoginRequiredMixin, View):
     def get(self, request):
         if CartItem.objects.exists():
@@ -55,10 +55,8 @@ def cart_add(request, pk):
 
 
 def remove_item(request, pk):
-    product = Products.objects.get(pk=pk)
     cart = Cart.objects.get(user=request.user.pk)
-    cart_item = CartItem.objects.filter(cart=cart, product=product)
-    cart_item.delete()
+    CartItem.objects.filter(cart=cart, product=pk).delete()
     return redirect("cart")
 
 def cart(request):

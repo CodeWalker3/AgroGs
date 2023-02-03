@@ -1,6 +1,11 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, UpdateView, ListView
+from django.views.generic import (
+    CreateView,
+    UpdateView, 
+    ListView,
+    DeleteView
+)
 from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 from django.views import View
 from .filters import ProductsFilter
@@ -36,18 +41,25 @@ class ProductsUserMixin(LoginRequiredMixin, UserPassesTestMixin):
         return self.request.user.has_perm('Can add Products')
 
     def handle_no_permission(self):
-        return redirect(reverse_lazy('products-list'))
+        return redirect(reverse_lazy('products:list'))
 
 class CreateProduct(ProductsUserMixin ,CreateView):
     model = Products
     form_class = ProductsForm
-    success_url = reverse_lazy("products-list")
+    success_url = reverse_lazy("products:list")
     def get_initial(self):
         self.initial.update({ 'created_by': self.request.user })
         return self.initial
 
 class UpdateProduct(UpdateView):
     pass
+
+class DeleteProduct(DeleteView):
+    model = Products
+    success_url = reverse_lazy("products:list")
+    
+    def get(self, *args, **kwargs):
+        return self.post(*args, **kwargs)
 
 class UpdateCategory(UpdateView):
     pass

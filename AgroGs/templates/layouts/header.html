@@ -51,8 +51,7 @@
                         </div>
                     </div>
                     <div class="col-xl-4 col-lg-5 col-md-8 col-sm-8">
-                        <div class="header-action">
-                            
+                        <div class="header-action">   
                             <div class="block-cart action">
                                 <a class="icon-link" href="{% url 'cart' %}">
                                     <i class="flaticon-shopping-bag"></i>
@@ -61,7 +60,6 @@
                                         <span class="sub">Your Cart:</span>
                                         ${{ cart.total }} </span>
                                 </a>
-                                
                                 <div class="cart">
                                     <div class="cart__mini">   
                                         <ul>
@@ -129,7 +127,7 @@
                                 </div>
                                </div>
                             {% else %}
-                                <div class="block-userlink">
+                                <div class="action block-userlink">
                                     <a class="icon-link" href="{% url 'account_login' %}">
                                        <i class="flaticon-user"></i> 
                                         <span class="text">
@@ -139,7 +137,7 @@
                                 </div>
                             {% endif %}
                         </div>
-                    </div>
+                    </div
                 </div>
             </div>
         </div>
