@@ -26,7 +26,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '.vercel.app', 
+    '.now.sh',
+    'localhost'
+    ]
 TEMPLATE_DIR = os.path.join(BASE_DIR,"templates")
 # Application definition
 SECRET_KEY = config('SECRET_KEY')
@@ -40,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites', 
     'rest_framework',
+    'rest_framework.authtoken',
     'admin_reorder',
     'django_filters',
     'AgroGs.users',
@@ -49,8 +54,11 @@ INSTALLED_APPS = [
     'AgroGs.cart',
     'allauth', 
     'allauth.account', 
-    'allauth.socialaccount', 
+    
+    'allauth.socialaccount',
+    'dj_rest_auth.registration',
     'allauth.socialaccount.providers.google',  
+    
 ]
 
 MIDDLEWARE = [
