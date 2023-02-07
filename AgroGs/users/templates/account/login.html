@@ -9,31 +9,31 @@
 {% block content %}
 <div class="account-area mt-70 mb-70">
   <div class="container">
-      <div class="row d-flex justify-content-center">
-          <div class="col-lg-6">
-              <div class="basic-login mb-50">
-                  <h5>Login</h5>
-                  <form method="POST" action="{% url 'account_login' %}">
-                    {% csrf_token %}
-                    {{ form.login.label_tag }}
-                    {{ form.login }}
-                    {{ form.password.label_tag }}
-                    {{ form.password }}
-                    <div class="login-action mb-10 fix">
-                      <span class="log-rem f-left">
-                         <input id="remember" type="checkbox">
-                         <label for="remember">Remember me</label>
-                      </span>
-                      <span class="forgot-login f-right">
-                         <a href="{% url 'account_reset_password' %}">Lost your password?</a>
-                      </span>
-                  </div>
-                    <button type="submit" class="tp-in-btn w-100">log in</button>
-                  </form>
-              </div>
-              <p>If you have not created an account yet, then please <a href="{{ signup_url }}">sign up</a> first.</p>
-          </div> 
+    <div class="row d-flex justify-content-center">
+      <div class="col-lg-6">
+        <div class="basic-login mb-50">
+          <h5>Login</h5>
+          <form method="POST" action="{% url 'account_login' %}">
+            {% csrf_token %}
+            {{ form.login.label_tag }}
+            {{ form.login }}
+            {{ form.password.label_tag }}
+            {{ form.password }}
+            <div class="login-action mb-10 fix">
+              <span class="log-rem f-left">
+                <input id="remember" type="checkbox">
+                <label for="remember">Remember me</label>
+              </span>
+              <span class="forgot-login f-right">
+                <a href="{% url 'account_reset_password' %}">Lost your password?</a>
+              </span>
+            </div>
+            <button type="submit" class="tp-in-btn w-100">log in</button>
+          </form>
+        </div>
+        <p>If you have not created an account yet, then please <a href="{{ signup_url }}">sign up</a> first.</p>
       </div>
+    </div>
   </div>
 </div>
 {% endblock %}

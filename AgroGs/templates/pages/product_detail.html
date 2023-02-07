@@ -1,45 +1,24 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 <div class="product-details" style="margin-top: 60px; margin-bottom: 60px;">
     <div class="container">
         <div class="row">
             <div class="col-xl-6">
                 <div class="product__details-nav d-sm-flex align-items-start">
-                    <ul class="nav nav-tabs flex-sm-column justify-content-between" id="productThumbTab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                          <button class="nav-link active" id="thumbOne-tab" data-bs-toggle="tab" data-bs-target="#thumbOne" type="button" role="tab" aria-controls="thumbOne" aria-selected="true">
-                              <img src="assets/img/product/nav/product-nav-1.jpg" alt="">
-                          </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                          <button class="nav-link" id="thumbTwo-tab" data-bs-toggle="tab" data-bs-target="#thumbTwo" type="button" role="tab" aria-controls="thumbTwo" aria-selected="false">
-                            <img src="assets/img/product/nav/product-nav-2.jpg" alt="">
-                          </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                          <button class="nav-link" id="thumbThree-tab" data-bs-toggle="tab" data-bs-target="#thumbThree" type="button" role="tab" aria-controls="thumbThree" aria-selected="false">
-                            <img src="assets/img/product/nav/product-nav-3.jpg" alt="">
-                          </button>
-                        </li>
-                    </ul>
                     <div class="product__details-thumb">
                         <div class="tab-content" id="productThumbContent">
-                            <div class="tab-pane fade show active" id="thumbOne" role="tabpanel" aria-labelledby="thumbOne-tab">
+                            <div class="tab-pane fade show active" id="thumbOne" role="tabpanel"
+                                aria-labelledby="thumbOne-tab">
                                 <div class="product__details-nav-thumb w-img">
-                                    <img src="assets/img/product/nav/product-nav-big-1.jpg" alt="">
+                                    {% if object.image %}
+                                         <img src="{{ object.image.url }}" alt="product">
+                                    {% else %}
+                                        <img src="{% static 'assets/img/no_image.jpeg' %}" alt="product">
+                                    {% endif %}
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="thumbTwo" role="tabpanel" aria-labelledby="thumbTwo-tab">
-                                <div class="product__details-nav-thumb w-img">
-                                    <img src="assets/img/product/nav/product-nav-big-3.jpg" alt="">
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="thumbThree" role="tabpanel" aria-labelledby="thumbThree-tab">
-                                <div class="product__details-nav-thumb w-img">
-                                    <img src="assets/img/product/nav/product-nav-big-2.jpg" alt="">
-                                </div>
-                            </div>
-                          </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -70,9 +49,12 @@
                     </div>
                     <div class="cart-option mb-15">
                         <div class="product-quantity mr-20">
-                            <div class="cart-plus-minus p-relative"><input type="text" value="1"><div class="dec qtybutton">-</div><div class="inc qtybutton">+</div></div>
+                            <div class="cart-plus-minus p-relative"><input type="text" value="1">
+                                <div class="dec qtybutton">-</div>
+                                <div class="inc qtybutton">+</div>
+                            </div>
                         </div>
-                        <a href="cart.html" class="cart-btn">Add to Cart</a>
+                        <a href="{% url 'cart' %}" class="cart-btn">Add to Cart</a>
                     </div>
                     <div class="details-meta">
                         <div class="d-meta-left">

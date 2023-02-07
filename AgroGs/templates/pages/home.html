@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
 
 {% include "layouts/slider.html" %}
@@ -29,8 +29,12 @@
                         <div class="product__item swiper-slide">
                             <div class="product__thumb fix">
                                 <div class="product-image w-img">
-                                    <a href="product-details.html">
-                                        <img src="" alt="product">
+                                    <a href="{% url 'product-detail' product.pk %}">
+                                        {% if product.image %}
+                                            <img src="{{ product.image.url }}" alt="product">
+                                        {% else %}
+                                            <img src="{% static 'assets/img/no_image.jpeg' %}" alt="product">
+                                        {% endif %}
                                     </a>
                                 </div>
                                 <div class="product__offer">

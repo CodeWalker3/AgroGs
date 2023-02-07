@@ -52,9 +52,10 @@ class Products(models.Model):
     updated_at = models.DateTimeField(
         auto_now=True
     )
-    image = models.ManyToManyField(
-        ImageProduct,
-        verbose_name='Imagem do Produto',
+    image = models.ImageField(
+        verbose_name="Product Image",
+        upload_to="products",
+        blank=False, null=True
     )
 
     def __str__(self):
