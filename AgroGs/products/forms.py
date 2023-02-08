@@ -1,14 +1,14 @@
 from django import forms
 from django.forms import ModelForm
 
-from .models import Products
+from .models import Products, Category
 
 
 class ProductsForm(ModelForm):
     class Meta:
         model = Products
-        fields = ["name", "price", "category", "description"] 
-  
+        fields = ["name", "price", "category", "image", "description"]
+
     def __init__(self, *args, **kwargs):
         super(ProductsForm, self).__init__(*args, **kwargs)
         self.created_by = kwargs['initial']['created_by']
