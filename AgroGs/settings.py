@@ -145,6 +145,8 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
+ACCOUNT_LOGOUT_ON_GET=True
+
 ACCOUNT_FORMS = {'signup': 'AgroGs.users.forms.SimpleSignupForm'}
 AUTH_USER_MODEL = 'users.User'
 

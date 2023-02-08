@@ -36,9 +36,11 @@ class Products(models.Model):
         verbose_name="Description",
         blank=False, null=False
     )
-    category = models.ManyToManyField(
+    category = models.ForeignKey(
         Category,
         verbose_name="Category",
+        on_delete=models.PROTECT,
+        blank=False, null=False
         )
     created_by = models.ForeignKey(
 		User,

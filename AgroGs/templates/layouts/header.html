@@ -1,5 +1,5 @@
 {% load static %}
-{% block css %} 
+{% block css %}
 <link rel="stylesheet" href="{% static 'assets/css/header.css' %}">
 {% endblock %}
 <header class="header d-blue-bg">
@@ -51,7 +51,7 @@
                         </div>
                     </div>
                     <div class="col-xl-4 col-lg-5 col-md-8 col-sm-8">
-                        <div class="header-action">   
+                        <div class="header-action">
                             <div class="block-cart action">
                                 <a class="icon-link" href="{% url 'cart' %}">
                                     <i class="flaticon-shopping-bag"></i>
@@ -61,7 +61,7 @@
                                         ${{ cart.total }} </span>
                                 </a>
                                 <div class="cart">
-                                    <div class="cart__mini">   
+                                    <div class="cart__mini">
                                         <ul>
                                             <li>
                                                 <div class="cart__title">
@@ -71,8 +71,9 @@
                                             </li>
                                             {% for item in cart_items %}
                                             <li>
-                                                <div class="cart__item d-flex justify-content-between align-items-center">
-                                                    
+                                                <div
+                                                    class="cart__item d-flex justify-content-between align-items-center">
+
                                                     <div class="cart__inner d-flex">
                                                         <div class="cart__thumb">
                                                             <a href="#">
@@ -81,15 +82,16 @@
                                                         </div>
                                                         <div class="cart__details">
                                                             <h6><a href="#"> {{ item.product.name }}
-                                                            <div class="cart__price">
-                                                                <span>{{ item.product.price }}</span>
-                                                            </div>
+                                                                    <div class="cart__price">
+                                                                        <span>{{ item.product.price }}</span>
+                                                                    </div>
                                                         </div>
                                                     </div>
                                                     <div class="cart__del">
-                                                        <a href="{% url 'remove_item' item.product.pk %}"><i class="fal fa-times"></i></a>
-                                                    </div>    
-                                                </div>  
+                                                        <a href="{% url 'remove_item' item.product.pk %}"><i
+                                                                class="fal fa-times"></i></a>
+                                                    </div>
+                                                </div>
                                             </li>
                                             {% endfor %}
                                             <li>
@@ -108,59 +110,155 @@
                                 </div>
                             </div>
                             {% if request.user.is_authenticated %}
-                              <div class=" action block-userlink">
+                            <div class="action block-userlink">
                                 <div class="icon-link" onclick="menuToggle();">
-                                    <img style="width: 25%; margin-right: 5px; " src="{% static 'assets/icons/user.png' %}" />
+                                    <img style="width: 25%; margin-right: 5px; "
+                                        src="{% static 'assets/icons/user.png' %}" />
                                     <span class="text">
                                         <span class="sub">{{ request.user.username }} </span>
                                         My Account </span>
                                 </div>
-                                <div class="menu">
-                                    <ul>
-                                      <li>
-                                        <img src="{% static 'assets/icons/edit.png' %}" /><a href="#">Edit profile</a>
-                                      </li>
-                                      <li>
-                                        <img src="{% static 'assets/icons/log-out.png' %}" /><a href="{% url 'account_logout' %}">Logout</a>
-                                      </li>
+                                <div class="menu d-flex justify-content-center">
+                                    <ul >
+                                        <li>
+                                            <a href="{% url 'products:list' %}">My products</a>
+                                        </li>
+                                        <li>
+                                            <a href="">My orders</a>
+                                        </li>
+                                        <li>
+                                           <a href="#">Edit profile</a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'account_logout' %}">Logout</a>
+                                        </li>
                                     </ul>
                                 </div>
-                               </div>
+                            </div>
                             {% else %}
-                                <div class="action block-userlink">
-                                    <a class="icon-link" href="{% url 'account_login' %}">
-                                       <i class="flaticon-user"></i> 
-                                        <span class="text">
-                                            <span class="sub">Login </span>
-                                            My Account </span>
-                                    </a>
-                                </div>
+                            <div class="action block-userlink">
+                                <a class="icon-link" href="{% url 'account_login' %}">
+                                    <i class="flaticon-user"></i>
+                                    <span class="text">
+                                        <span class="sub">Login </span>
+                                        My Account </span>
+                                </a>
+                            </div>
                             {% endif %}
                         </div>
-                    </div
+                    </div </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="header__bottom">
-        <div class="container">
-            <div class="row g-0 align-items-center">
-                <div class="col-lg-3">
-                    <div class="cat__menu-wrapper side-border d-none d-lg-block">
-                        <div class="cat-toggle">
-                            <button type="button" class="cat-toggle-btn cat-toggle-btn-1"><i class="fal fa-bars"></i>
-                                Shop by department</button>
-                            <div class="cat__menu">
-                                <nav id="mobile-menu" style="display: block;">
+        <div class="header__bottom">
+            <div class="container">
+                <div class="row g-0 align-items-center">
+                    <div class="col-lg-3">
+                        <div class="cat__menu-wrapper side-border d-none d-lg-block">
+                            <div class="cat-toggle">
+                                
+                                <div class="cat__menu">
+                                    <nav id="mobile-menu" style="display: block;">
+                                        <ul>
+                                            <li>
+                                                <a href="#">All Categories <i class="far fa-angle-down"></i></a>
+                                                <ul class="mega-menu">
+                                                    <li><a href="#">Shop Pages</a>
+                                                        <ul class="mega-item">
+                                                            <li><a href="#">Standard SHop Page</a></li>
+                                                            <li><a href="#">Shop Right Sidebar</a></li>
+                                                            <li><a href="#">Shop Left Sidebar</a></li>
+                                                            <li><a href="#">Shop 3 Column</a></li>
+                                                            <li><a href="#">Shop 4 Column</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><a href="#">Product Pages</a>
+                                                        <ul class="mega-item">
+                                                            <li><a href="#">Product Details</a></li>
+                                                            <li><a href="#">Product V2</a></li>
+                                                            <li><a href="#">Product V3</a></li>
+                                                            <li><a href="#">Varriable Product</a></li>
+                                                            <li><a href="#">External Product</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><a href="#">Other Pages</a>
+                                                        <ul class="mega-item">
+                                                            <li><a href="#">wishlist</a></li>
+                                                            <li><a href="#">Shopping Cart</a></li>
+                                                            <li><a href="#">Checkout</a></li>
+                                                            <li><a href="#">Login</a></li>
+                                                            <li><a href="#">Register</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#">Best Seller Products
+                                                    <span class="cat-label">hot!</span>
+                                                    <i class="far fa-angle-down"></i>
+                                                </a>
+                                                <ul class="mega-menu">
+                                                    <li><a href="#">Shop Pages</a>
+                                                        <ul class="mega-item">
+                                                            <li><a href="#">Standard SHop Page</a></li>
+                                                            <li><a href="#">Shop Right Sidebar</a></li>
+                                                            <li><a href="#">Shop Left Sidebar</a></li>
+                                                            <li><a href="#">Shop 3 Column</a></li>
+                                                            <li><a href="#">Shop 4 Column</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><a href="#">Product Pages</a>
+                                                        <ul class="mega-item">
+                                                            <li><a href="#">Product Details</a></li>
+                                                            <li><a href="#">Product V2</a></li>
+                                                            <li><a href="#">Product V3</a></li>
+                                                            <li><a href="#">Varriable Product</a></li>
+                                                            <li><a href="#">External Product</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><a href="#">Other Pages</a>
+                                                        <ul class="mega-item">
+                                                            <li><a href="#">wishlist</a></li>
+                                                            <li><a href="#">Shopping Cart</a></li>
+                                                            <li><a href="#">Checkout</a></li>
+                                                            <li><a href="#">Login</a></li>
+                                                            <li><a href="#">Register</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#">Top 10 Offers
+                                                    <span class="cat-label green">new!</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">New Arrivals</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-3">
+                        <div class="header__bottom-left d-flex d-xl-block align-items-center">
+                            <div class="side-menu d-lg-none mr-20">
+                                <button type="button" class="side-menu-btn offcanvas-toggle-btn"><i
+                                        class="fas fa-bars"></i></button>
+                            </div>
+                            <div class="main-menu d-none d-lg-block">
+                                <nav>
                                     <ul>
                                         <li>
-                                            <a href="#">All Categories <i class="far fa-angle-down"></i></a>
-                                            <ul class="mega-menu">
-                                                <li><a href="#">Shop Pages</a>
+                                            <a href="{% url 'home' %}" class="active">Home <i
+                                                    class="far fa-angle-down"></i></a>
+                                            <ul class="megamenu-1">
+                                                <li><a href="{% url 'home' %}">Home Pages</a>
                                                     <ul class="mega-item">
-                                                        <li><a href="#">Standard SHop Page</a></li>
-                                                        <li><a href="#">Shop Right Sidebar</a></li>
-                                                        <li><a href="#">Shop Left Sidebar</a></li>
+                                                        <li><a href="{% url 'home' %}" class="active">Home One</a></li>
+                                                        <li><a href="index-2.html">Home Two</a></li>
+                                                        <li><a href="index-3.html">Home Three</a></li>
                                                         <li><a href="#">Shop 3 Column</a></li>
                                                         <li><a href="#">Shop 4 Column</a></li>
                                                     </ul>
@@ -179,54 +277,25 @@
                                                         <li><a href="#">wishlist</a></li>
                                                         <li><a href="#">Shopping Cart</a></li>
                                                         <li><a href="#">Checkout</a></li>
-                                                        <li><a href="#">Login</a></li>
+                                                        <li><a href="{% url 'account_login' %}">Login</a></li>
                                                         <li><a href="#">Register</a></li>
                                                     </ul>
                                                 </li>
                                             </ul>
                                         </li>
+                                        <li><a href="{% url 'shop' %}">Products</a></li>
+                                        <li><a href="#">About Us</a></li>
                                         <li>
-                                            <a href="#">Best Seller Products
-                                                <span class="cat-label">hot!</span>
-                                                <i class="far fa-angle-down"></i>
-                                            </a>
-                                            <ul class="mega-menu">
-                                                <li><a href="#">Shop Pages</a>
-                                                    <ul class="mega-item">
-                                                        <li><a href="#">Standard SHop Page</a></li>
-                                                        <li><a href="#">Shop Right Sidebar</a></li>
-                                                        <li><a href="#">Shop Left Sidebar</a></li>
-                                                        <li><a href="#">Shop 3 Column</a></li>
-                                                        <li><a href="#">Shop 4 Column</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#">Product Pages</a>
-                                                    <ul class="mega-item">
-                                                        <li><a href="#">Product Details</a></li>
-                                                        <li><a href="#">Product V2</a></li>
-                                                        <li><a href="#">Product V3</a></li>
-                                                        <li><a href="#">Varriable Product</a></li>
-                                                        <li><a href="#">External Product</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#">Other Pages</a>
-                                                    <ul class="mega-item">
-                                                        <li><a href="#">wishlist</a></li>
-                                                        <li><a href="#">Shopping Cart</a></li>
-                                                        <li><a href="#">Checkout</a></li>
-                                                        <li><a href="#">Login</a></li>
-                                                        <li><a href="#">Register</a></li>
-                                                    </ul>
-                                                </li>
+                                            <a href="#">Pages <i class="far fa-angle-down"></i></a>
+                                            <ul class="submenu">
+                                                <li><a href="#">My Account</a></li>
+                                                <li><a href="#">Product Details</a></li>
+                                                <li><a href="{% url 'cart' %}">Cart</a></li>
+                                                <li><a href="#">Wishlist</a></li>
+                                                <li><a href="">Checkout</a></li>
+                                                <li><a href="">Contact Us</a></li>
+                                                <li><a href="">404 Error</a></li>
                                             </ul>
-                                        </li>
-                                        <li>
-                                            <a href="#">Top 10 Offers
-                                                <span class="cat-label green">new!</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">New Arrivals</a>
                                         </li>
                                     </ul>
                                 </nav>
@@ -234,70 +303,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-3">
-                    <div class="header__bottom-left d-flex d-xl-block align-items-center">
-                        <div class="side-menu d-lg-none mr-20">
-                            <button type="button" class="side-menu-btn offcanvas-toggle-btn"><i
-                                    class="fas fa-bars"></i></button>
-                        </div>
-                        <div class="main-menu d-none d-lg-block">
-                            <nav>
-                                <ul>
-                                    <li>
-                                        <a href="{% url 'home' %}" class="active">Home <i
-                                                class="far fa-angle-down"></i></a>
-                                        <ul class="megamenu-1">
-                                            <li><a href="{% url 'home' %}">Home Pages</a>
-                                                <ul class="mega-item">
-                                                    <li><a href="{% url 'home' %}" class="active">Home One</a></li>
-                                                    <li><a href="index-2.html">Home Two</a></li>
-                                                    <li><a href="index-3.html">Home Three</a></li>
-                                                    <li><a href="#">Shop 3 Column</a></li>
-                                                    <li><a href="#">Shop 4 Column</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="#">Product Pages</a>
-                                                <ul class="mega-item">
-                                                    <li><a href="#">Product Details</a></li>
-                                                    <li><a href="#">Product V2</a></li>
-                                                    <li><a href="#">Product V3</a></li>
-                                                    <li><a href="#">Varriable Product</a></li>
-                                                    <li><a href="#">External Product</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="#">Other Pages</a>
-                                                <ul class="mega-item">
-                                                    <li><a href="#">wishlist</a></li>
-                                                    <li><a href="#">Shopping Cart</a></li>
-                                                    <li><a href="#">Checkout</a></li>
-                                                    <li><a href="{% url 'account_login' %}">Login</a></li>
-                                                    <li><a href="#">Register</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="{% url 'shop' %}">Products</a></li>
-                                    <li><a href="#">About Us</a></li>
-                                    <li>
-                                        <a href="#">Pages <i class="far fa-angle-down"></i></a>
-                                        <ul class="submenu">
-                                            <li><a href="#">My Account</a></li>
-                                            <li><a href="#">Product Details</a></li>
-                                            <li><a href="{% url 'cart' %}">Cart</a></li>
-                                            <li><a href="#">Wishlist</a></li>
-                                            <li><a href="">Checkout</a></li>
-                                            <li><a href="">Contact Us</a></li>
-                                            <li><a href="">404 Error</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
-    </div>
 </header>
 
 <div class="offcanvas__area">
@@ -330,7 +337,7 @@
 
 <script>
     function menuToggle() {
-      const toggleMenu = document.querySelector(".menu");
-      toggleMenu.classList.toggle("active");
+        const toggleMenu = document.querySelector(".menu");
+        toggleMenu.classList.toggle("active");
     }
-  </script>
+</script>

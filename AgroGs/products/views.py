@@ -4,7 +4,8 @@ from django.views.generic import (
     CreateView,
     UpdateView, 
     ListView,
-    DeleteView
+    DeleteView,
+    DetailView
 )
 from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 from django.views import View
@@ -20,7 +21,6 @@ class CreateCategory(CreateView):
 
 class ProductsList(ListView):
     model = Products
-    queryset = Products.objects.all()
     paginate_by = 4
     filterset_class = ProductsFilter
 
@@ -32,8 +32,13 @@ class ProductsList(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["form_filter"] = self.filterset.form
+        context["object_list"] = Products.objects.filter(created_by=self.request.user).all()
 
         return context
+
+
+class ProductsDetail(DetailView):
+    model = Products
 
 class ProductsUserMixin(LoginRequiredMixin, UserPassesTestMixin):
 
@@ -52,7 +57,12 @@ class CreateProduct(ProductsUserMixin ,CreateView):
         return self.initial
 
 class UpdateProduct(UpdateView):
-    pass
+    model = Products
+    form_class = ProductsForm
+    success_url = reverse_lazy("products:list")
+    def get_initial(self):
+        self.initial.update({ 'created_by': self.request.user })
+        return self.initial
 
 class DeleteProduct(DeleteView):
     model = Products
