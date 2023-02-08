@@ -8,4 +8,5 @@ class TestBaseUser(TestCase):
             password="test123",
             email="teste@teste.com",
         )
+        user.save()
         return user
