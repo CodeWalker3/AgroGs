@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 # Create your models here.
+
+
 class User(AbstractUser):
     is_vendor = models.BooleanField(
         default=False
@@ -10,17 +12,24 @@ class User(AbstractUser):
         max_length=100,
         null=True, blank=True
     )
-    profile_pic = models.ImageField(
-        verbose_name="Profile Picture",
-        null = True, blank=True,
-        upload_to="users",
-        
-    )
     class Meta:
         app_label="users"
         verbose_name='User'
         verbose_name_plural='Users'
-        
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(
+        User, 
+        primary_key=True, 
+        verbose_name='user', 
+        related_name='profile',
+        on_delete=models.CASCADE    
+    )
+    profile_pic = models.ImageField(
+        verbose_name="Profile Picture",
+        null = True, blank=True,
+        upload_to="users",
+    )
 
 class Address(models.Model):
     city = models.CharField(
