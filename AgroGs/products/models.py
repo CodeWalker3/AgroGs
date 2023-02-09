@@ -11,16 +11,6 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-
-class ImageProduct(models.Model):
-    product_img = models.ImageField(
-        verbose_name="Product Image",
-        upload_to="products",
-        blank=False, null=False
-    )
-    def __str__(self):
-        return self.product_img.name
-
 class Products(models.Model):
     name = models.CharField(
         verbose_name="Name",
