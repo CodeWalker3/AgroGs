@@ -1,6 +1,6 @@
 from allauth.account.forms import SignupForm
 from django import forms
-from .models import User
+from .models import User, UserProfile
 from django.contrib.auth.models import Group
 class SimpleSignupForm(SignupForm):
     def save(self, request):
@@ -27,3 +27,8 @@ class UpdateUserForm(forms.ModelForm):
         obj.is_vendor = True
         commit and obj.save()
         return obj
+
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ['pic']

@@ -25,12 +25,11 @@ class UserProfile(models.Model):
         related_name='profile',
         on_delete=models.CASCADE    
     )
-    profile_pic = models.ImageField(
+    pic = models.ImageField(
         verbose_name="Profile Picture",
-        null = True, blank=True,
-        upload_to="users",
+        default="default.jpg",
+        upload_to="profile_images",
     )
-
 class Address(models.Model):
     city = models.CharField(
         verbose_name="City",

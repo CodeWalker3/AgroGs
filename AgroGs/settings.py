@@ -191,7 +191,8 @@ ADMIN_REORDER = (
      'models': (
          'users.User',
          'auth.Group',
-         'users.Address'
+         'users.Address',
+         'users.UserProfile'
     )},
     
     'cart',

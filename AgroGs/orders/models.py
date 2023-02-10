@@ -1,6 +1,6 @@
 from django.db import models
 from AgroGs.users.models import User
-from AgroGs.cart.models import Cart
+
 # Create your models here.
 
 class PaymentMethod(models.Model):
@@ -10,6 +10,7 @@ class PaymentMethod(models.Model):
     )
     def __str__(self):
         return self.name
+
 class Orders(models.Model):
     ChoiceStatus = (
         ('Em andamento', 'Em andamento'),
@@ -36,12 +37,6 @@ class Orders(models.Model):
         User,
         verbose_name="User",
         )
-    cart = models.OneToOneField(
-        Cart,
-        verbose_name="Cart",
-        on_delete=models.CASCADE,
-        blank=True, null=True
-    )
     payment = models.ForeignKey(
         PaymentMethod,
         verbose_name="Payment",
