@@ -1,12 +1,7 @@
-"""
-Create permission groups
-Create permissions (read only) to models for a set of groups
-"""
 import logging
 
+from django.contrib.auth.models import Group, Permission
 from django.core.management.base import BaseCommand
-from django.contrib.auth.models import Group
-from django.contrib.auth.models import Permission
 
 GROUPO_VENDOR = ['vendor']
 GRUPO_USUARIO = ['usuario']
@@ -18,33 +13,14 @@ class Command(BaseCommand):
     help = 'Creates read only default permission groups for users'
 
     def handle(self, *args, **options):
-        for group in GROUPO_VENDOR:
-            new_group, created = Group.objects.get_or_create(name=group)
-            for model in MODELS:
-                for permission in PERMISSIONS_VENDOR:
-                    name = 'Can {} {}'.format(permission, model)
-                    print("Creating {}".format(name))
+        groups = [Group(name=group) for group in GROUPO_VENDOR + GRUPO_USUARIO]
+        Group.objects.get_or_create(name=groups)
 
-                    try:
-                        model_add_perm = Permission.objects.get(name=name)
-                    except Permission.DoesNotExist:
-                        logging.warning("Permission not found with name '{}'.".format(name))
-                        continue
+        for group in groups:
+            user_permissions = PERMISSIONS_VENDOR if group.name in GROUPO_VENDOR else USER_PERMISSIONS
+            permissions = [Permission.objects.get(name='Can {} {}'.format(permission, model))
+                           for model in MODELS for permission in user_permissions]
 
-                    new_group.permissions.add(model_add_perm)
-        for group in GRUPO_USUARIO:
-            new_group, created = Group.objects.get_or_create(name=group)
-            for model in MODELS:
-                for permission in USER_PERMISSIONS:
-                    name = 'Can {} {}'.format(permission, model)
-                    print("Creating {}".format(name))
-
-                    try:
-                        model_add_perm = Permission.objects.get(name=name)
-                    except Permission.DoesNotExist:
-                        logging.warning("Permission not found with name '{}'.".format(name))
-                        continue
-
-                    new_group.permissions.add(model_add_perm)
+            group.permissions.add(permissions)
 
         print("Created default group and permissions.")
