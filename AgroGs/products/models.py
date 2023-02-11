@@ -48,7 +48,7 @@ class Products(models.Model):
     image = models.ImageField(
         verbose_name="Product Image",
         upload_to="products",
-        blank=False, null=True
+        blank=True, null=True
     )
 
     def __str__(self):

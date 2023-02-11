@@ -8,7 +8,7 @@ class User(AbstractUser):
         default=False
     )
     cnpj = models.CharField(
-        verbose_name="CNPJ",
+        verbose_name="Cnpj",
         max_length=100,
         null=True, blank=True
     )
@@ -30,6 +30,8 @@ class UserProfile(models.Model):
         default="default.jpg",
         upload_to="profile_images",
     )
+    def __str__(self):
+        return self.user.username_validator
 class Address(models.Model):
     city = models.CharField(
         verbose_name="City",
