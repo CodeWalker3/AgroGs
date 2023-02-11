@@ -1,3 +1,4 @@
+from django.contrib.auth.models import Group
 from .models import User, UserProfile
 from django.db.models.signals import post_save
 from django.dispatch import receiver
@@ -6,4 +7,8 @@ from django.dispatch import receiver
 def create_profile(sender, instance, created, **kwargs):
     if created:
         UserProfile.objects.create(user=instance).save()
+        if instance.is_staff:
+            group = Group.objects.get(name='vendor')
+            instance.groups.add(group.id)
+        
         
