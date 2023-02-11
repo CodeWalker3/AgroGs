@@ -27,9 +27,15 @@
                            <td class="product-price"><span class="amount">{{ value.price }}</span></td>
                            <td class="product-quantity">
                               <div class="row w-100">
+                                 {% if value.quantity == 1 %}
+                                 <div class="col-4">
+                                    <a href="javascript:void(0)" class="text-center">-</a>
+                                 </div>
+                                 {% else %}
                                  <div class="col-4">
                                     <a href="{% url 'item_decrement' value.product_id %}" class="text-center">-</a>
                                  </div>
+                                 {% endif %}
                                  <div class="col-4">
                                     <input type="text" value="{{value.quantity}}" class="form-control border-0 text-center">
                                  </div>
