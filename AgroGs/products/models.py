@@ -32,7 +32,11 @@ class Products(models.Model):
         verbose_name="Category",
         on_delete=models.PROTECT,
         blank=False, null=False
-        )
+    )
+    quantity = models.IntegerField(
+        verbose_name="Quantity",
+        blank=False, null=False
+    )
     created_by = models.ForeignKey(
 		User,
 		on_delete=models.SET_NULL,
@@ -50,7 +54,6 @@ class Products(models.Model):
         upload_to="products",
         blank=True, null=True
     )
-
     def __str__(self):
         return self.name
 

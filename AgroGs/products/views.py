@@ -48,10 +48,10 @@ class ProductsUserMixin(LoginRequiredMixin, UserPassesTestMixin):
     def handle_no_permission(self):
         return redirect(reverse_lazy('shop'))
 
-class CreateProduct(ProductsUserMixin ,CreateView):
+class CreateProduct(ProductsUserMixin, CreateView):
     model = Products
     form_class = ProductsForm
-    success_url = reverse_lazy("shop")
+    success_url = reverse_lazy("products:list")
     def get_initial(self):
         self.initial.update({ 'created_by': self.request.user })
         return self.initial

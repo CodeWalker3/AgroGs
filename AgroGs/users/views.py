@@ -13,6 +13,7 @@ from .models import User, UserProfile
 class Home(TemplateView):
     template_name = 'home.html'
 
+
 class UserVendorUpdateView(UpdateView):
     model = User
     template_name = "user_change_form.html"
@@ -40,5 +41,4 @@ def profile(request):
 def test_user_profile(request):
     return render(request, 'test1.html')
    
-       
-   
+    

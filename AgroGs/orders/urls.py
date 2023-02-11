@@ -1,8 +1,14 @@
 from django.contrib import admin
 from django.urls import path, include
 from .views import (
-    OrdersList
+    OrdersListView,
+    OrdersCreateView
 )
+
+
+app_name = "orders"
+
 urlpatterns = [
-    path('orders', OrdersList.as_view(), name="orders_list")
+    path('list/', OrdersListView.as_view(), name="list"),
+    path('create/', OrdersCreateView.as_view(), name="create")
     ]

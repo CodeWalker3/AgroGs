@@ -11,5 +11,4 @@ urlpatterns = [
     path('', include('AgroGs.core.urls')),
     path('products/', include('AgroGs.products.urls')),
     path('orders/', include('AgroGs.orders.urls')),
-    path('cart', include('AgroGs.cart.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

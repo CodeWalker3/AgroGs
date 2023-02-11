@@ -1,4 +1,5 @@
 {% load static %}
+{% load cart_tag %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'assets/css/header.css' %}">
 {% endblock %}
@@ -36,7 +37,8 @@
                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4">
                         <div class="header__info">
                             <div class="logo">
-                                <a href="{% url 'home' %}" class="logo-image"><img src="" alt="logo"></a>
+                                <a href="{% url 'home' %}" class="logo-image"><img
+                                        src="{% static 'assets/img/logo.png' %}" width="130" alt="logo"></a>
                             </div>
                         </div>
                     </div>
@@ -55,10 +57,10 @@
                             <div class="block-cart action">
                                 <a class="icon-link" href="{% url 'cart' %}">
                                     <i class="flaticon-shopping-bag"></i>
-                                    <span class="count">{{cart_items_count}}</span>
+                                    <span class="count">{{request.session.cart|length}}</span>
                                     <span class="text">
                                         <span class="sub">Your Cart:</span>
-                                        ${{ cart.total }} </span>
+                                        ${{ cart_total_amount }} </span>
                                 </a>
                                 <div class="cart">
                                     <div class="cart__mini">
@@ -66,10 +68,10 @@
                                             <li>
                                                 <div class="cart__title">
                                                     <h4>Your Cart</h4>
-                                                    <span>({{cart_items_count}} Item in Cart)</span>
+                                                    <span>({{request.session.cart|length}} Item in Cart)</span>
                                                 </div>
                                             </li>
-                                            {% for item in cart_items %}
+                                            {% for key,value in request.session.cart.items %}
                                             <li>
                                                 <div
                                                     class="cart__item d-flex justify-content-between align-items-center">
@@ -77,18 +79,18 @@
                                                     <div class="cart__inner d-flex">
                                                         <div class="cart__thumb">
                                                             <a href="#">
-                                                                <img src="assets/img/cart/20.jpg" alt="">
+                                                                <img src="{{ value.image }}" alt="">
                                                             </a>
                                                         </div>
                                                         <div class="cart__details">
-                                                            <h6><a href="#"> {{ item.product.name }}
+                                                            <h6><a href="#"> {{ value.name }}
                                                                     <div class="cart__price">
-                                                                        <span>{{ item.product.price }}</span>
+                                                                        <span>{{ value.price }}</span>
                                                                     </div>
                                                         </div>
                                                     </div>
                                                     <div class="cart__del">
-                                                        <a href="{% url 'remove_item' item.product.pk %}"><i
+                                                        <a href="{% url 'item_clear' value.product_id %}"><i
                                                                 class="fal fa-times"></i></a>
                                                     </div>
                                                 </div>
@@ -98,12 +100,16 @@
                                                 <div
                                                     class="cart__sub d-flex justify-content-between align-items-center">
                                                     <h6>Subtotal</h6>
-                                                    <span class="cart__sub-total">${{ cart.total }}</span>
+                                                    <span class="cart__sub-total">${{ cart_total_amount }}</span>
                                                 </div>
                                             </li>
                                             <li>
                                                 <a href="{% url 'cart' %}" class="wc-cart mb-10">View cart</a>
-                                                <a href="{% url 'checkout' %}" class="wc-checkout">Checkout</a>
+                                                {% if request.session.cart.items %}
+                                                <a href="{% url 'orders:create' %}" class="wc-checkout">Checkout</a>
+                                                {% else %}
+                                                <a href="javascript:void(0)" style="pointer-events: none;color: #ccc;" class="wc-checkout">Checkout</a>
+                                                {% endif %}
                                             </li>
                                         </ul>
                                     </div>
@@ -119,15 +125,15 @@
                                         My Account </span>
                                 </div>
                                 <div class="menu d-flex justify-content-center">
-                                    <ul >
+                                    <ul>
                                         <li>
                                             <a href="{% url 'products:list' %}">My products</a>
                                         </li>
                                         <li>
-                                            <a href="">My orders</a>
+                                            <a href="{% url 'orders:list' %}">My orders</a>
                                         </li>
                                         <li>
-                                           <a href="#">Edit profile</a>
+                                            <a href="#">Edit profile</a>
                                         </li>
                                         <li>
                                             <a href="{% url 'account_logout' %}">Logout</a>
@@ -156,7 +162,7 @@
                     <div class="col-lg-3">
                         <div class="cat__menu-wrapper side-border d-none d-lg-block">
                             <div class="cat-toggle">
-                                
+
                                 <div class="cat__menu">
                                     <nav id="mobile-menu" style="display: block;">
                                         <ul>
@@ -290,7 +296,7 @@
                                             <ul class="submenu">
                                                 <li><a href="#">My Account</a></li>
                                                 <li><a href="#">Product Details</a></li>
-                                                <li><a href="{% url 'cart' %}">Cart</a></li>
+                                                <li><a href="#">Cart</a></li>
                                                 <li><a href="#">Wishlist</a></li>
                                                 <li><a href="">Checkout</a></li>
                                                 <li><a href="">Contact Us</a></li>
