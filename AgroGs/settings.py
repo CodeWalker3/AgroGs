@@ -50,11 +50,10 @@ INSTALLED_APPS = [
     'AgroGs.users',
     'AgroGs.core',
     'AgroGs.orders',
+    'cart',
     'AgroGs.products',
-    'AgroGs.cart',
     'allauth', 
     'allauth.account', 
-    
     'allauth.socialaccount',
     'dj_rest_auth.registration',
     'allauth.socialaccount.providers.google',  
@@ -89,7 +88,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-                "AgroGs.cart.views.cart"
+                "cart.context_processor.cart_total_amount"
             ],
         },
     },
@@ -195,9 +194,10 @@ ADMIN_REORDER = (
          'users.UserProfile'
     )},
     
-    'cart',
     'orders',
     'products',
     'socialaccount'
 
 )
+
+CART_SESSION_ID = 'cart'

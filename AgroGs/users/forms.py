@@ -1,15 +1,16 @@
 from allauth.account.forms import SignupForm
 from django import forms
-from .models import User, UserProfile
+from .models import User, UserProfile, Address
 from django.contrib.auth.models import Group
+
 class SimpleSignupForm(SignupForm):
     def save(self, request):
         user = super(SimpleSignupForm, self).save(request)
 
         user.save()
         return user
-    
 
+    
 class UpdateUserForm(forms.ModelForm):
     
     class Meta:
@@ -32,3 +33,13 @@ class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         fields = ['pic']
+
+class AddressForm(forms.ModelForm):
+    class Meta:
+        model = Address
+        exclude = ('user',)
+
+    def __init__(self, *args, **kwargs):
+        super(AddressForm, self).__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'

@@ -1,15 +1,6 @@
 from django.db import models
+from AgroGs.products.models import Products
 from AgroGs.users.models import User
-
-# Create your models here.
-
-class PaymentMethod(models.Model):
-    name = models.CharField(
-        max_length=100,
-        null=False, blank=False,
-    )
-    def __str__(self):
-        return self.name
 
 class Orders(models.Model):
     ChoiceStatus = (
@@ -33,14 +24,31 @@ class Orders(models.Model):
     update_date = models.DateTimeField(
         auto_now=True
     )
-    user = models.ManyToManyField(
+    user = models.ForeignKey(
         User,
         verbose_name="User",
-        )
-    payment = models.ForeignKey(
-        PaymentMethod,
-        verbose_name="Payment",
-        null=True, blank=False,
-        on_delete=models.SET_NULL
-        )
+        on_delete=models.CASCADE
+    )
+    product = models.ManyToManyField(
+        Products, 
+        through='ProductOrder'
+        
+    )
 
+    def __str__(self):
+        return str(self.id)
+
+
+class ProductOrder(models.Model):
+    product = models.ForeignKey(
+        Products, 
+        on_delete=models.CASCADE
+    )
+    order = models.ForeignKey(
+        Orders, 
+        on_delete=models.CASCADE
+    )
+    quantity = models.IntegerField(
+        verbose_name="Quantity",
+        blank=False, null=False
+    )

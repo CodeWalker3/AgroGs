@@ -1,5 +1,5 @@
 {% load static %}
-<div class="slider-area" style="background-color: #17A354;">
+<div class="slider-area" data-background="{% static 'assets/img/banner.png' %}" style="background-size:cover; width:2000;">
     <div class="swiper-container slider">
         <div class="slider-wrapper swiper-wrapper">
             <div class="single-slider swiper-slide slider-height d-flex align-items-center">
@@ -7,11 +7,6 @@
                     <div class="row">
                         <div class="col-xl-5">
                             <div class="slider-content">
-                                <h2 data-animation="fadeInLeft" data-delay="1.7s" class="pt-15 slider-title pb-5">First <br> SOMETHING SOMETHING</h2>
-                                <p class="pr-20 slider_text" data-animation="fadeInLeft" data-delay="1.9s">Discount 30% On Products & Free Shipping</p>
-                                <div class="slider-bottom-btn mt-75">
-                                    <a data-animation="fadeInUp" data-delay="1.15s" href="{% url 'shop' %}" class="st-btn-b b-radius">Discover now</a>
-                                </div>
                             </div>
                         </div>
                     </div>

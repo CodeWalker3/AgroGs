@@ -37,17 +37,17 @@ class Address(models.Model):
         null=False, blank=False
     )
     state = models.CharField(
-        verbose_name="Name",
+        verbose_name="State",
         max_length=100,
         null=False, blank=False
     )
     phone = models.CharField(
-        verbose_name="Name",
+        verbose_name="Phone",
         max_length=100,
-        null=True, blank=True
+        null=False, blank=False
     )
     street = models.CharField(
-        verbose_name="Name",
+        verbose_name="Street",
         max_length=100,
         null=False, blank=False
     )

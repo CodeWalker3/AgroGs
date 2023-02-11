@@ -12,9 +12,9 @@
                                 aria-labelledby="thumbOne-tab">
                                 <div class="product__details-nav-thumb w-img">
                                     {% if object.image %}
-                                         <img src="{{ object.image.url }}" alt="product">
+                                    <img src="{{ object.image.url }}" alt="product">
                                     {% else %}
-                                        <img src="{% static 'assets/img/no_image.jpeg' %}" alt="product">
+                                    <img src="{% static 'assets/img/no_image.jpeg' %}" alt="product">
                                     {% endif %}
                                 </div>
                             </div>
@@ -54,7 +54,7 @@
                                 <div class="inc qtybutton">+</div>
                             </div>
                         </div>
-                        <a href="{% url 'cart' %}" class="cart-btn">Add to Cart</a>
+                        <a href="#" class="cart-btn">Add to Cart</a>
                     </div>
                     <div class="details-meta">
                         <div class="d-meta-left">
