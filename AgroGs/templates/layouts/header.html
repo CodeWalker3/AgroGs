@@ -105,9 +105,13 @@
                                 </div>
                                 <div class="menu d-flex justify-content-center">
                                     <ul>
+                                        {% for group in request.user.groups.all %}
+                                            {% if group.name == 'vendor' %}
                                         <li>
                                             <a class="new-product" href="{% url 'products:list' %}">My products</a>
                                         </li>
+                                            {% endif %}
+                                        {% endfor %}
                                         <li>
                                             <a href="{% url 'orders:list' %}">My orders</a>
                                         </li>

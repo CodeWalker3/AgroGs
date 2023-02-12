@@ -9,6 +9,8 @@ from AgroGs.products.tests.test_base import ProductFactory, CategoryFactory
 from AgroGs.users.tests.test_base import UserFactory
 from AgroGs.users.models import User
 from factory.django import ImageField
+
+
 class ProductsListViewTestCase(TestCase):
     def setUp(self):
         self.factory = RequestFactory()

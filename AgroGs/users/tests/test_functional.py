@@ -1,12 +1,11 @@
-from time import sleep
-from django.test import TestCase
 from AgroGs.users.tests.test_base_functional import UserBaseTest
 from utils.browser import make_chrome_browser
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 
-class UsersTest(StaticLiveServerTestCase, TestCase, UserBaseTest):
+
+class UsersTest(StaticLiveServerTestCase, UserBaseTest):
 
     def test_registration(self):
         browser = make_chrome_browser()
