@@ -21,6 +21,7 @@ class ProductFactory(DjangoModelFactory):
     name = Faker("word")
     price = FuzzyDecimal(1,100)
     description = Faker("text")
+    quantity = FuzzyInteger(1,100)
     category = SubFactory(CategoryFactory)
     created_by = SubFactory(UserFactory)
     image = ImageField()

@@ -8,6 +8,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from cart.cart import Cart
 
+
+
 class HomeView(TemplateView):
     template_name = "pages/home.html"
 

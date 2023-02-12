@@ -112,6 +112,7 @@ class CreateProductTestCase(TestCase):
         'created_by': self.vendor,
         'category': self.category.pk,
         'price':12.2,
+        'quantity':6,
         'description':'lalalala'
         })
         request.user = self.vendor

@@ -31,7 +31,7 @@ class UserProfile(models.Model):
         upload_to="profile_images",
     )
     def __str__(self):
-        return self.user.username_validator
+        return self.user.username
 class Address(models.Model):
     city = models.CharField(
         verbose_name="City",

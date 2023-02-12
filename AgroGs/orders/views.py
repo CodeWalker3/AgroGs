@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-
 from django.views import View
 from django.views.generic import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -25,6 +24,7 @@ class OrdersListView(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["form_filter"] = self.filterset.form
+        self.object_list = self.get_queryset()
         context["object_list"] = Orders.objects.filter(user=self.request.user).all()
         return context
 

@@ -7,7 +7,7 @@ from .models import Products, Category
 class ProductsForm(ModelForm):
     class Meta:
         model = Products
-        fields = ["name", "price", "category", "image", "description"]
+        fields = ["name", "price", "quantity", "category", "image", "description"]
 
     def __init__(self, *args, **kwargs):
         super(ProductsForm, self).__init__(*args, **kwargs)

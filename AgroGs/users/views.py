@@ -38,7 +38,5 @@ def profile(request):
     context={'p_form': p_form}
     return render(request, 'test.html',context )
 
-def test_user_profile(request):
-    return render(request, 'test1.html')
    
     

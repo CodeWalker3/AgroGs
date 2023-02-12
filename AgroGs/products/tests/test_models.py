@@ -19,5 +19,6 @@ class ProductsTestCase(TestCase):
         self.assertEqual(str(self.category), self.category.name)
     
     def test_str_representation(self):
-        self.product = ProductFactory()
         self.assertEqual(str(self.product), self.product.name)
+    def test_category_str(self):
+        self.assertEquals(str(self.category), self.category.name)

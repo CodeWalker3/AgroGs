@@ -8,7 +8,9 @@ def create_profile(sender, instance, created, **kwargs):
     if created:
         UserProfile.objects.create(user=instance).save()
         if instance.is_staff:
-            group = Group.objects.get(name='vendor')
-            instance.groups.add(group.id)
+            groups = Group.objects.filter(name='vendor')
+            if groups:
+                for group in groups:
+                    instance.groups.add(group.id)
         
         
