@@ -4,7 +4,7 @@
 <div class="container mt-70 mb-70">
     <div class="row d-flex justify-content-center">
         <div class="col-lg-6">
-            <div class="mb-50">
+            <div class="mb-10">
                 <h3>Create Product</h3>
                 <form method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
@@ -25,22 +25,31 @@
                         
                     </div>
                     <div class="mt-3 row">
-                        <div class="col-md-6 col-lg-9 col-12">
+                        <div class="col-md-6 col-lg-6 col-12">
                             <div class="label mb-0" for="input-medium">
                                 {{form.image.label_tag}}
                             </div>
                             {{form.image}}
                         </div>
-                        
+                        <div class="col-md-6 col-lg-3 col-12">
+                            <div class="label mb-0" for="input-medium">
+                                {{form.quantity.label_tag}}
+                            </div>
+                            {{form.quantity}}
+                        </div>  
                         <div class="col-md-6 col-lg-1 col-12">
                             <div class="label mb-0" for="input-medium">
                                 {{form.category.label_tag}}
                             </div>
                             {{form.category}}
-                        </div>                       
+                        </div>                      
                     </div>
-                    {{form.description.label_tag}}
-                    {{form.description}}
+                    <div class="col-md-6 col-lg-12 col-12">
+                        <div class="label mb-0" for="input-medium">
+                            {{form.description.label_tag}}
+                        </div>
+                        {{form.description}}
+                    </div>
                     <button type="submit" class="tp-in-btn w-100 mt-4">Create</button>
                 </form>
             </div>
