@@ -91,9 +91,14 @@
                             </div>
                             {% if request.user.is_authenticated %}
                             <div class="action block-userlink">
+                                
                                 <div class="icon-link" onclick="menuToggle();">
+                                    {% if request.user.profile.pic.url == True  %}
                                     <img style="width: 35px; height: 35px; border-radius: 100%; object-fit: cover;"
                                         src="{{ request.user.profile.pic.url }}" />
+                                    {% else %}
+                                    <i class="flaticon-user"></i>
+                                    {% endif %}
                                     <span class="text">
                                         <span class="sub">{{ request.user.username }} </span>
                                         My Account </span>
@@ -234,19 +239,10 @@
                                             <a href="{% url 'home' %}" class="active">Home</a>
                                         </li>
                                         <li><a href="{% url 'shop' %}">Products</a></li>
-                                        <li><a href="#">About Us</a></li>
-                                        <li>
-                                            <a href="#">Pages <i class="far fa-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="#">My Account</a></li>
-                                                <li><a href="#">Product Details</a></li>
-                                                <li><a href="#">Cart</a></li>
-                                                <li><a href="#">Wishlist</a></li>
-                                                <li><a href="">Checkout</a></li>
-                                                <li><a href="">Contact Us</a></li>
-                                                <li><a href="">404 Error</a></li>
-                                            </ul>
-                                        </li>
+                                        <li><a href="#">About us</a></li>
+                                        {% if request.user.is_authenticated %}
+                                        <li><a href="{% url 'users:user-update' request.user.pk %}">Become a seller</a></li>
+                                        {% endif %}
                                     </ul>
                                 </nav>
                             </div>

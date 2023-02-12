@@ -21,6 +21,9 @@ class UpdateUserForm(forms.ModelForm):
         super(UpdateUserForm, self).__init__(*args, **kwargs)
         self.is_vendor = kwargs['initial']['is_vendor']
 
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
+
     def save(self, commit=True):
         obj = super(UpdateUserForm, self).save(False)
         group = Group.objects.get(name="vendor")
