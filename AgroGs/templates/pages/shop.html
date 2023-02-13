@@ -12,7 +12,7 @@
                         <form action="#">
                             <div class="single-widget-category">
                                 <input type="checkbox" id="cat-item-1" name="cat-item">
-                                <label for="cat-item-1">Espadas<span>(12)</span></label>
+                                <label for="cat-item-1">Frutas e Verduras<span></span></label>
                             </div
                         </form>
                     </div>
@@ -62,7 +62,7 @@
                                             <div class="product-image w-img">
                                                 <a href="{% url 'product-detail' product.pk %}">
                                                     {% if product.image %}
-                                                        <img src="{{ product.image.url }}" alt="product">
+                                                        <img src="{{ product.image.url }}" height="150" alt="product">
                                                     {% else %}
                                                         <img src="{% static 'assets/img/no_image.jpeg' %}" alt="product">
                                                     {% endif %}
@@ -96,7 +96,7 @@
                                                 <span>(01 review)</span>
                                             </div>
                                             <div class="price mb-10">
-                                                <span>{{ product.price }}</span>
+                                                <span>${{ product.price }}</span>
                                             </div>
                                         </div>
                                         <div class="product__add-cart-s text-center">

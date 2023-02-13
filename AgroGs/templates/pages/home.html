@@ -30,7 +30,7 @@
                                 <div class="product-image w-img">
                                     <a href="{% url 'product-detail' product.pk %}">
                                         {% if product.image %}
-                                            <img src="{{ product.image.url }}" alt="product">
+                                            <img src="{{ product.image.url }}" height="150" alt="product">
                                         {% else %}
                                             <img src="{% static 'assets/img/no_image.jpeg' %}" alt="product">
                                         {% endif %}

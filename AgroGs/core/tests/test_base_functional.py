@@ -7,8 +7,9 @@ from selenium.webdriver.common.keys import Keys
 class CartBaseTest(UserBaseTest):
     def add_to_cart(self):
         browser = self.make_login()
-        browser.execute_script("window.scrollTo(0, 850);")
-        sleep(2)
-        browser.find_element(By.XPATH, "/html/body/main/section[2]/div/div[2]/div/div/div[1]/div[2]/div[1]/div[1]/a/img").click()
-        browser.find_element(By.XPATH, "/html/body/main/div/div/div/div[2]/div/div[5]/a").click()
+        sleep(3)
+        browser.find_element(By.XPATH, "/html/body/header/div/div[2]/div/div/div[2]/div/div[2]/nav/ul/li[2]/a").click()
+        sleep(3)
+        browser.find_element(By.XPATH, "/html/body/main/div/div/div/div[2]/div[2]/div/div/div/div[1]/div/div[3]/a").click()
+        sleep(3)
         return browser
