@@ -65,6 +65,8 @@ class OrdersCreateView(LoginRequiredMixin, View):
                 product=product,
                 quantity=item['quantity']
             )
+            product.quantity = int(product.quantity) - int(item['quantity'])
+            product.save()
             product_order.save()
         order.total = cart_total_amount(self.request)["cart_total_amount"]  
         order.save()

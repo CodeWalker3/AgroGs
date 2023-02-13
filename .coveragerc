@@ -9,3 +9,5 @@ omit=
     */admin.py
     */filters.py
     */settings.py
+    */creategroups.py
+    */browser.py

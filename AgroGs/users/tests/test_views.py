@@ -23,14 +23,14 @@ class ProfileViewTestCase(TestCase):
         self.client.login(username='testuser', password='password')
 
     def test_profile_view_get(self):
-        response = self.client.get(reverse('test'))
+        response = self.client.get(reverse('users:test'))
         self.assertEqual(response.status_code, 200)
         self.assertIn('p_form', response.context)
         self.assertEqual(response.context['p_form'].instance, self.user_profile.user)
 
     def test_profile_view_post(self):
         image = SimpleUploadedFile("test.jpg", b"file_content", content_type="image/jpeg")
-        response = self.client.post(reverse('test'), data={
+        response = self.client.post(reverse('users:test'), data={
             'image': image,
         })
         self.assertEqual(response.status_code, 302)
@@ -44,7 +44,7 @@ class UserVendorUpdateViewTestCase(TestCase):
         self.vendor_group, created = Group.objects.get_or_create(name='vendor')
         self.factory = RequestFactory()
         self.user = UserFactory()
-        self.url = reverse_lazy('user-update', args=(self.user.id,))
+        self.url = reverse_lazy('users:user-update', args=(self.user.id,))
 
     def test_get_initial(self):
         request = self.factory.get(self.url)

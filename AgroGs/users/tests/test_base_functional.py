@@ -1,7 +1,7 @@
 from utils.browser import make_chrome_browser
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from ..models import User
+
 
 class UserBaseTest:
     def make_login(self):

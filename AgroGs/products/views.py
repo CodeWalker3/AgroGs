@@ -21,7 +21,7 @@ class CreateCategory(CreateView):
 
 class ProductsList(ListView):
     model = Products
-    paginate_by = 4
+    paginate_by = 5
     filterset_class = ProductsFilter
 
     def get_queryset(self):

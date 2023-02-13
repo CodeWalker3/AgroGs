@@ -45,7 +45,10 @@
                         </ul>
                     </div>
                     <div class="product-stock mb-20">
-                        <h5>Availability: <span> 940 in stock</span></h5>
+                        <h5>Availability: <span> {{ object.quantity }}</span></h5>
+                    </div>
+                    <div class="product-stock mb-20">
+                        <h5>Seller: <span> {{ object.created_by }}</span></h5>
                     </div>
                     <div class="cart-option mb-15">
                         <div class="product-quantity mr-20">
@@ -74,7 +77,7 @@
                     <div class="product-tag-area mt-15">
                         <div class="product_info">
                             <span class="posted_in">
-                                <span class="title">Categories:</span>
+                                <span class="title">Category:</span>
                                 <a href="#">{{object.category.name}}</a>
                             </span>
                         </div>
